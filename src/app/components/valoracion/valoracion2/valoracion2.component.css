@@ -1,0 +1,128 @@
+.label-containerr{
+	position:fixed;
+	/*bottom:40px;*/
+	top:0;
+	margin-top:80px;
+	right:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-containerl{
+	position:fixed;
+	/*bottom:40px;*/
+	top:0;
+	margin-top:80px;
+	left:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+.float{
+	/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;*/
+	width:60px;
+	right:40px;
+	height:60px;
+	margin-top:80px;
+	position:absolute;
+	top:0;
+	background-color:#06C;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	cursor: pointer;
+}
+
+.floatl
+{
+	width: 60px;
+    height: 60px;
+    margin-top: 107px;
+	left:40px;
+    position: absolute;
+    top: 0;
+    background-color: #536DFE;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    -webkit-box-shadow: 2px 2px 3px #536DFE;
+    box-shadow: 2px 2px 3px #536DFE;
+    cursor: pointer;
+}
+
+
+.floatr
+{
+		/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;*/
+	right:40px;
+	width:60px;
+	/*left:517px;*/
+	height:60px;	
+	position:absolute;
+	margin-top:107px;
+	top:0;
+	background-color:#536DFE;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #536DFE;
+	cursor: pointer;
+}
+
+
+
+.my-float{
+	font-size:24px;
+	margin-top:18px;
+}
+a.floatl+ div.label-containerl {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.float + div.label-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.floatr + div.label-containerr {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.floatl:hover + div.label-containerl{
+  visibility: visible;
+  opacity: 1;
+}
+
+a.floatr:hover + div.label-containerr{
+  visibility: visible;
+  opacity: 1;
+}

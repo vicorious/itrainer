@@ -1,0 +1,134 @@
+<html>
+	<head>
+	<!--===============================================================================================-->
+		<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	</head>
+<body>
+
+<h1>Horario disponible</h1>
+
+<div class="month">      
+  <ul>
+    <!--li class="prev">&#10094;</li-->
+    <!--li class="next">&#10095;</li-->
+    <li>
+      Mayo<br>
+      <span style="font-size:18px">2017</span>
+    </li>
+  </ul>
+</div>
+
+<ul class="weekdays">
+  <li>Lun</li>
+  <li>Mar</li>
+  <li>Mie</li>
+  <li>Jue</li>
+  <li>Vie</li>
+  <li>Sab</li>
+  <li>Dom</li>
+</ul>
+
+<ul class="days">  
+  <li class="myBtn">1</li>
+  <li class="myBtn">2</li>
+  <li class="myBtn">3</li>
+  <li class="myBtn">4</li>
+  <li class="myBtn">5</li>
+  <li class="myBtn">6</li>
+  <li class="myBtn">7</li>
+  <li class="myBtn">8</li>
+  <li class="myBtn">9</li>
+  <li class="myBtn"><span class="active">10</span></li>
+  <li class="myBtn">11</li>
+  <li class="myBtn">12</li>
+  <li class="myBtn">13</li>
+  <li class="myBtn">14</li>
+  <li class="myBtn">15</li>
+  <li class="myBtn">16</li>
+  <li class="myBtn">17</li>
+  <li class="myBtn">18</li>
+  <li class="myBtn">19</li>
+  <li class="myBtn">20</li>
+  <li class="myBtn">21</li>
+  <li class="myBtn">22</li>
+  <li class="myBtn">23</li>
+  <li class="myBtn">24</li>
+  <li class="myBtn">25</li>
+  <li class="myBtn">26</li>
+  <li class="myBtn">27</li>
+  <li class="myBtn">28</li>
+  <li class="myBtn">29</li>
+  <li class="myBtn">30</li>
+  <li class="myBtn">31</li>
+</ul>
+
+			<!-- Progress bar -->
+	<ng-progress></ng-progress>
+	
+		<a (click)="perfil()" class="floatl">
+<i class="fa fa-user my-float"></i>
+</a>
+<div class="label-containerl">
+<div class="label-text">Perfil</div>
+<i class="fa fa-user label-arrow"></i>
+</div>
+
+	<a class="floatr" (click)="valoracion2()">
+<i class="fa fa-arrow-right my-float"></i>
+</a>
+<div class="label-containerr">
+<div class="label-text">Siguiente</div>
+<i class="fa fa-arrow-right label-arrow"></i>
+</div>
+
+<!-- Modal -->
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Ya casi lo logramos!</h2>
+    </div>
+    <div class="modal-body" [formGroup]="calendario_form">
+      <p>Horario inicial <input [(ngModel)]="hora" type="time" formControlName="hora" required/></p>
+	  
+	  <p>Cuantas Horas? <input [(ngModel)]="numero_horas" type="number" formControlName="numero_horas" required/></p>
+	  <a *ngIf="calendario_form.valid" class="floatr" (click)="mostrarModalConfirmacion()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>	
+    </div>
+    <div class="modal-footer">
+      <h3>iTrainer</h3>
+    </div>
+  </div>
+
+</div>
+
+<!-- The Modal Confirmation-->
+<div id="myModalConfirmation" class="modal-confirmation">
+
+  <!-- Modal content -->
+  <div class="modal-content-top">
+    <div class="modal-header-confirmation">
+      <span class="close-confirmation">&times;</span>
+      <h2>!!!</h2>
+    </div>
+    <div class="modal-body">
+      <p>Estas seguro de este horario? </p>
+	  <a class="floatr" (click)="perfil()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>	
+    </div>
+    <div class="modal-footer-confirmation">
+      <h3>iTrainer</h3>
+    </div>
+  </div>
+
+</div>
+
+
+</body>
+</html>

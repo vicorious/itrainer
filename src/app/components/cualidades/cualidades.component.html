@@ -1,0 +1,76 @@
+<html>
+<head>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+
+<div class="row">
+  <div class="column-card">
+    <div class="card-card">
+      <img src="assets/imagenes/mujer.jpg" alt="Jane" style="width:100%">
+      <div class="container-card">
+        <h2>Jane Doe</h2>
+        <p class="title-card">CEO & Founder</p>
+        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+        <p>example@example.com</p>
+        <!--p><button class="button-card">Contact</button></p-->
+      </div>
+    </div>
+  </div>
+ 
+  
+<!--div class="row"-->
+				<!--OJO NO es dinamico, mirar el app.component.ts (ESTO ES ANGULAR 4(Typescript))-->
+					<div class="filterDiv" (click)="armarReporte('tipo_personal')">Tipo personal</div>
+					<div class="filterDiv" (click)="armarReporte('cargo')">Cargo</div>
+					<div class="filterDiv" (click)="armarReporte('tipo_identificacion')">Tipo identificacion</div>
+					<div class="filterDiv" (click)="armarReporte('numero_identificacion')">Numero identificacion</div>
+					<div class="filterDiv" (click)="armarReporte('primer_nombre')">Primer nombre</div>
+					<div class="filterDiv" (click)="armarReporte('segundo_nombre')">Segundo nombre</div>
+					<div class="filterDiv" (click)="armarReporte('primer_apellido')">Primer apellido</div>
+					<div class="filterDiv" (click)="armarReporte('segundo_apellido')">Segundo apellido</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_nacimiento')">Fecha nacimiento</div>
+					<div class="filterDiv" (click)="armarReporte('pais_nacimiento')">Pais nacimiento</div>
+					<div class="filterDiv" (click)="armarReporte('pais_nacionalidad')">Pais nacionalidad</div>
+					<div class="filterDiv" (click)="armarReporte('pais_residencia')">Pais residencia</div>
+					<div class="filterDiv" (click)="armarReporte('observaciones')">Observaciones</div>
+					<div class="filterDiv" (click)="armarReporte('tipo_proceso')">Tipo proceso</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_requisicion')">Fecha requisicion</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_inicio_contrato')">Fecha inicio contrato</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_finalizacion_contrato')">Fecha finalizacion contrato</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_finalizacion_proceso')">Fecha finalizacion proceso</div>
+					<div class="filterDiv" (click)="armarReporte('numero_requision')">Numero requision</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_requisicion')">Fecha requisicion</div>
+					<div class="filterDiv" (click)="armarReporte('usuario_creacion')">Usuario creacion</div>
+					<div class="filterDiv" (click)="armarReporte('fecha_actualizacion')">Fecha actualizacion</div>
+					<div class="filterDiv" (click)="armarReporte('usuario_actualizacion')">Usuario actualizacion</div>				
+				</div>
+	<!--/div-->
+				
+<a (click)="agendar()" class="float-rigth-bottom">
+<i class="fa fa-credit-card my-float"></i>
+</a>
+<div class="label-container">
+<div class="label-text">Agendar</div>
+<i class="fa fa-th-list label-arrow"></i>
+</div>	
+
+<a (click)="perfil()" class="float-rigth-bottom-minus">
+<i class="fa fa-user my-float"></i>
+</a>
+<div class="label-container">
+<div class="label-text">Perfil</div>
+<i class="fa fa-user label-arrow"></i>
+</div>			
+				
+					
+			<!-- Progress bar -->
+	<ng-progress></ng-progress>
+	
+</body>
+
+</html>

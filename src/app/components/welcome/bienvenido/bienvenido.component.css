@@ -1,0 +1,175 @@
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
+body { padding-top: 60px; }
+.nav.nav-justified > li > a { position: relative; }
+.nav.nav-justified > li > a:hover,
+.nav.nav-justified > li > a:focus { background-color: transparent; }
+.nav.nav-justified > li > a > .quote {
+    position: absolute;
+    left: 0px;
+    top: 0;
+    opacity: 0;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    background-color: #13c0ba;
+    border-radius: 15px;
+    color: #fff;  
+}
+.nav.nav-justified > li.active > a > .quote { opacity: 1; }
+.nav.nav-justified > li > a > img { box-shadow: 0 0 0 5px #13c0ba; }
+.nav.nav-justified > li > a > img { 
+    max-width: 100%; 
+    opacity: .3; 
+    -webkit-transform: scale(.8,.8);
+            transform: scale(.8,.8);
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.nav.nav-justified > li.active > a > img,
+.nav.nav-justified > li:hover > a > img,
+.nav.nav-justified > li:focus > a > img { 
+    opacity: 1; 
+    -webkit-transform: none;
+            transform: none;
+    -webkit-transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s 0s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.tab-pane .tab-inner { padding: 30px 0 20px; }
+
+@media (min-width: 768px) {
+    .nav.nav-justified > li > a > .quote {
+        left: auto;
+        top: auto;
+        right: 20px;
+        bottom: 0px;
+    }  
+}
+
+.label-containerr{
+	position:fixed;
+	/*bottom:40px;*/
+	top:0;
+	margin-top:80px;
+	right:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-containerl{
+	position:fixed;
+	/*bottom:40px;*/
+	top:0;
+	margin-top:80px;
+	left:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.label-text{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.label-arrow{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+.float{
+	/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;*/
+	width:60px;
+	right:40px;
+	height:60px;
+	margin-top:80px;
+	position:absolute;
+	top:0;
+	background-color:#06C;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	cursor: pointer;
+}
+
+.floatl
+{
+	width: 60px;
+    height: 60px;
+    margin-top: 107px;
+	left:40px;
+    position: absolute;
+    top: 0;
+    background-color: #536DFE;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    -webkit-box-shadow: 2px 2px 3px #536DFE;
+    box-shadow: 2px 2px 3px #536DFE;
+    cursor: pointer;
+}
+
+
+.floatr
+{
+		/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;*/
+	right:40px;
+	width:60px;
+	/*left:517px;*/
+	height:60px;	
+	position:absolute;
+	margin-top:107px;
+	top:0;
+	background-color:#536DFE;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #536DFE;
+	cursor: pointer;
+}
+
+
+
+.my-float{
+	font-size:24px;
+	margin-top:18px;
+}
+a.floatl+ div.label-containerl {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.float + div.label-container {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.floatr + div.label-containerr {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.floatl:hover + div.label-containerl{
+  visibility: visible;
+  opacity: 1;
+}
+
+a.floatr:hover + div.label-containerr{
+  visibility: visible;
+  opacity: 1;
+}
