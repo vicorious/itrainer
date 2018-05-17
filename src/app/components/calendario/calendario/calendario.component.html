@@ -96,7 +96,7 @@
       <p>Horario inicial <input [(ngModel)]="hora" type="time" formControlName="hora" required/></p>
 	  
 	  <p>Cuantas Horas? <input [(ngModel)]="numero_horas" type="number" formControlName="numero_horas" required/></p>
-	  <a *ngIf="calendario_form.valid" class="floatr" (click)="mostrarModalConfirmacion()">
+	  <a *ngIf="calendario_form.valid && hora != 0" class="floatr" (click)="mostrarModalConfirmacion()">
 		<i class="fa fa-angellist my-float"></i>
 	  </a>	
     </div>

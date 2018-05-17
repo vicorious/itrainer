@@ -116,13 +116,15 @@ export class AgendarComponent implements OnInit
   *
   **/
   getToday()
-  {
-	  document.getElementById("agendar_today").valueAsDate = new Date();
-	  
-	  this.header_form.controls['hora'].invalid === false;
-	  this.header_form.setErrors({ 'invalid': false });
-	  
-	  console.log(this.header_form.controls['hora']);
+  {	    
+		var now = new Date();
+
+		var day = ("0" + now.getDate()).slice(-2);
+		var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+		var today = now.getFullYear()+"-"+(month)+"-"+(day) ;   
+
+		(<HTMLInputElement>document.getElementById("agendar_today")).value == today;
 	  
   }//getToday
   
