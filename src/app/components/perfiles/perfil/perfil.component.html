@@ -9,7 +9,9 @@
     <title>Mi perfil</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,500,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">   
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> 
+
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/css/util.css">		
 	
 </head>
 <body>
@@ -22,9 +24,6 @@
         <div class="useravatar">
             <img alt="" src="assets/imagenes/mujer.jpg">
         </div>
-        <div class="card-info"> <span class="card-title">Probando</span>
-
-        </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
         <div class="btn-group" role="group">
@@ -33,13 +32,13 @@
             </button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                <div class="hidden-xs">Historial</div>
+            <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span>
+                <div class="hidden-xs">Redimir puntos</div>
             </button>
         </div>
         <div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
-                <div class="hidden-xs">Dinero</div>
+                <div class="hidden-xs">Dinero y puntos</div>
             </button>
         </div>
 		<div class="btn-group" role="group">
@@ -47,17 +46,30 @@
                 <div class="hidden-xs">Calendario</div>
             </button>
         </div>
-		<div class="btn-group" role="group">
+		<!--div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab5" data-toggle="tab"><span class="glyphicon glyphicon-heart-empty" aria-hidden="true"></span>
                 <div class="hidden-xs">Mis calificaciones</div>
             </button>
-        </div>		
+        </div-->		
     </div>
 
         <div class="well">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1">          
 			<ul class="container inline-b">
+				<li class="item inline-b-item">
+					<h4>Mi calificacion</h4>
+
+					<div class="acidjs-rating-stars acidjs-rating-disabled">
+						<form>
+							   <input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label><!--
+							--><input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label><!--
+							--><input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label><!--
+							--><input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label><!--
+							--><input disabled="disabled" type="radio" name="group-3" id="group-3-4"  value="1" /><label for="group-3-4"></label>
+						</form>
+					</div>
+				</li>			
 				<li class="item inline-b-item">Camilo Barrera</li>
 				<li class="item inline-b-item">28 años</li>
 				<li class="item inline-b-item">6 años experiencia</li>
@@ -67,21 +79,58 @@
         </div>
         <div class="tab-pane fade in" id="tab2">
 		
-          <ul class="container inline-b">
-			<li class="item inline-b-item">Maria - 11 Mayo - 4 horas</li>
-			<li class="item inline-b-item">Juan - 11 Mayo - 1 hora</li>
-			<li class="item inline-b-item">Alejo - 11 Mayo - 1 hora</li>
-			<li class="item inline-b-item">Jimmy - 11 Mayo - 1 hora</li>
-			<li class="item inline-b-item">Oscar - 11 Mayo - 120 horas</li>
-		  </ul>
+<!-- Card container -->
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Canilleras</h5>
+      <p class="card-text">La estacion del deporte</p>	  
+	  <p class="card-text">25 Puntos</p>	  
+      <p class="card-text"><small class="text-muted">Kra 106a #143-31</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-credit-card my-float"></i>
+	  </a>	
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Canilleras</h5>
+      <p class="card-text">La estacion del deporte</p>	  
+	  <p class="card-text">25 Puntos</p>	  
+      <p class="card-text"><small class="text-muted">Kra 106a #143-31</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-credit-card my-float"></i>
+	  </a>	
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Canilleras</h5>
+      <p class="card-text">La estacion del deporte</p>	  
+	  <p class="card-text">25 Puntos</p>	  
+      <p class="card-text"><small class="text-muted">Kra 106a #143-31</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-credit-card my-float"></i>
+	  </a>	
+    </div>
+  </div>
+</div>
+<!-- Card container -->
         </div>
         <div class="tab-pane fade in" id="tab3">
+		  <h2>Saldo </h2>
           <ul class="container inline-b">
-			<li class="item inline-b-item">1</li>
-			<li class="item inline-b-item">2</li>
-			<li class="item inline-b-item">3</li>
-			<li class="item inline-b-item">4</li>
-			<li class="item inline-b-item">5</li>
+			<li class="item inline-b-item">Tus puntos son:</li>
+			<li class="item inline-b-item">544</li>
+			<li class="item inline-b-item">Tus Dinero ganado es:</li>
+			<li class="item inline-b-item">$232.000</li>
+			
 		  </ul>          
         </div>
         <div class="tab-pane fade" id="tab4">         
@@ -142,7 +191,7 @@
 				<li class="myBtn">31</li>
 			</ul>
         </div>
-		<div class="tab-pane fade in" id="tab5">
+		<!--div class="tab-pane fade in" id="tab5">
 		
 			<h2>Pendientes</h2>
 			<hr/>
@@ -150,10 +199,10 @@
 			<div class="acidjs-rating-stars">			
 				<form>
 					<input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
-					--><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
-					--><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
-					--><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
-					--><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+					<input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+					<input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+					<input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+					<input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
 				</form>
 			</div>
 			<h4>Alejandra Mañana</h4>
@@ -161,10 +210,10 @@
 			<div class="acidjs-rating-stars">
 				<form>
 					<input type="radio" name="group-2" id="group-2-0" value="5" /><label for="group-2-0"></label><!--
-					--><input type="radio" name="group-2" id="group-2-1" value="4" /><label for="group-2-1"></label><!--
-					--><input type="radio" checked="checked" name="group-2" id="group-2-2" value="3" /><label for="group-2-2"></label><!--
-					--><input type="radio" name="group-2" id="group-2-3" value="2" /><label for="group-2-3"></label><!--
-					--><input type="radio" name="group-2" id="group-2-4"  value="1" /><label for="group-2-4"></label>
+					<input type="radio" name="group-2" id="group-2-1" value="4" /><label for="group-2-1"></label><!--
+					input type="radio" checked="checked" name="group-2" id="group-2-2" value="3" /><label for="group-2-2"></label><!--
+					<input type="radio" name="group-2" id="group-2-3" value="2" /><label for="group-2-3"></label><!--
+					<input type="radio" name="group-2" id="group-2-4"  value="1" /><label for="group-2-4"></label>
 				</form>
 			</div>			
 			 
@@ -177,14 +226,14 @@
 			<div class="acidjs-rating-stars acidjs-rating-disabled">
 			<form>
 					<input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label><!--
-				--><input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label><!--
-				--><input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label><!--
-				--><input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label><!--
-				--><input disabled="disabled" type="radio" name="group-3" id="group-3-4"  value="1" /><label for="group-3-4"></label>
+				<input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label><!--
+				<input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label><!--
+				input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label><!--
+				<input disabled="disabled" type="radio" name="group-3" id="group-3-4"  value="1" /><label for="group-3-4"></label>
 			</form>
-		</div>
+			</div>
 		
-		</div>
+		</div-->
 		
       </div>
     </div>
@@ -207,6 +256,95 @@
 <div class="labelcontainerr">
 <div class="labeltext">Evaluacion</div>
 <i class="fa fa-paperclip labelarrow"></i>
+</div>
+
+<!-- Modal -->
+
+<!-- The Modal Confirmation-->
+<div id="myModal" class="modal-confirmation">
+
+  <!-- Modal content -->
+  <div class="modal-content-top">
+    <div class="modal-header-confirmation">
+      <span class="close-confirmation">&times;</span>
+      <h2>Detalle</h2>
+    </div>
+    <div class="modal-body">
+      <!-- Body -->
+<div class="card-deck">
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Alejandra</h5>
+      <p class="card-text">Una descripcion</p>	  
+			<div class="acidjs-rating-stars">			
+				<form>
+					<input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
+					--><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+					--><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+					--><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+					--><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+				</form>
+			</div>
+      <p class="card-text"><small class="text-muted">Ultima actualizacion 15 minutos antes</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>	
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Natalia</h5>
+      <p class="card-text">Una descripcion</p>	  
+			<div class="acidjs-rating-stars">			
+				<form>
+					<input type="radio" name="group-1" id="group-1-0" value="5" /><label for="group-1-0"></label><!--
+					--><input type="radio" name="group-1" id="group-1-1" value="4" /><label for="group-1-1"></label><!--
+					--><input type="radio" name="group-1" id="group-1-2" value="3" /><label for="group-1-2"></label><!--
+					--><input type="radio" name="group-1" id="group-1-3" value="2" /><label for="group-1-3"></label><!--
+					--><input type="radio" name="group-1" id="group-1-4"  value="1" /><label for="group-1-4"></label>
+				</form>
+			</div>
+      <p class="card-text"><small class="text-muted">Ultima actualizacion 15 minutos antes</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>		  
+    </div>
+  </div>
+  <div class="card">
+    <img class="card-img-top" src="assets/imagenes/mujer.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Camila</h5>
+      <p class="card-text">Una descripcion</p>	  
+			<div class="acidjs-rating-stars acidjs-rating-disabled">
+			<form>
+					<input disabled="disabled" type="radio" name="group-3" id="group-3-0" value="5" /><label for="group-3-0"></label><!--
+				--><input disabled="disabled" type="radio" checked="checked" name="group-3" id="group-3-1" value="4" /><label for="group-3-1"></label><!--
+				--><input disabled="disabled" type="radio" name="group-3" id="group-3-2" value="3" /><label for="group-3-2"></label><!--
+				--><input disabled="disabled" type="radio" name="group-3" id="group-3-3" value="2" /><label for="group-3-3"></label><!--
+				--><input disabled="disabled" type="radio" name="group-3" id="group-3-4"  value="1" /><label for="group-3-4"></label>
+			</form>
+			</div>
+      <p class="card-text"><small class="text-muted">Ultima actualizacion 15 minutos antes</small></p>
+	  <!-- Floating button -->
+	  <a class="floatF" (click)="calendario()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>		  
+    </div>
+  </div>
+</div>
+	  
+	  
+	  <!-- Body -->
+    </div>
+    <div class="modal-footer-confirmation">
+      <h3>iTrainer</h3>
+    </div>
+  </div>
+
 </div>
 
 		<!-- Progress bar -->

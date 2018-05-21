@@ -159,14 +159,14 @@ ul {list-style-type: none;}
 	width: 60px;
     height: 60px;    
 	right:40px;
-	margin-top:-3%;
+	margin-top:-2%;
     position: absolute;    
-    background-color: #003366;
+    background-color: #536DFE;
     color: #FFF;
     border-radius: 50px;
     text-align: center;
-    -webkit-box-shadow: 2px 2px 3px #003366;
-    box-shadow: 2px 2px 3px #003366;
+    -webkit-box-shadow: 2px 2px 3px #536DFE;
+    box-shadow: 2px 2px 3px #536DFE;
     cursor: pointer;	
 }
 

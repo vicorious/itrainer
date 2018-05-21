@@ -2,6 +2,15 @@
 	<head>
 	<!--===============================================================================================-->
 		<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/vendor/select2/select2.min.css">	
+	<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/ContactFrom_v1/css/main.css">
 	</head>
 <body>
 
@@ -64,22 +73,7 @@
 
 			<!-- Progress bar -->
 	<ng-progress></ng-progress>
-	
-		<a (click)="perfil()" class="floatl">
-<i class="fa fa-user my-float"></i>
-</a>
-<div class="label-containerl">
-<div class="label-text">Perfil</div>
-<i class="fa fa-user label-arrow"></i>
-</div>
 
-	<a class="floatr" (click)="valoracion2()">
-<i class="fa fa-arrow-right my-float"></i>
-</a>
-<div class="label-containerr">
-<div class="label-text">Siguiente</div>
-<i class="fa fa-arrow-right label-arrow"></i>
-</div>
 
 <!-- Modal -->
 
@@ -93,9 +87,9 @@
       <h2>Ya casi lo logramos!</h2>
     </div>
     <div class="modal-body" [formGroup]="calendario_form">
-      <p>Horario inicial <input [(ngModel)]="hora" type="time" formControlName="hora" required/></p>
+      <p>Horario inicial <input class="input1" style="width:50% !important" [(ngModel)]="hora" type="time" formControlName="hora" required/></p>
 	  
-	  <p>Cuantas Horas? <input [(ngModel)]="numero_horas" type="number" formControlName="numero_horas" required/></p>
+	  <p>Cuantas Horas? <input class="input1" style="width:50% !important" [(ngModel)]="numero_horas" type="number" formControlName="numero_horas" required/></p>
 	  <a *ngIf="calendario_form.valid && hora != 0" class="floatr" (click)="mostrarModalConfirmacion()">
 		<i class="fa fa-angellist my-float"></i>
 	  </a>	
@@ -114,11 +108,11 @@
   <div class="modal-content-top">
     <div class="modal-header-confirmation">
       <span class="close-confirmation">&times;</span>
-      <h2>!!!</h2>
+      <h2>Confirmemos</h2>
     </div>
     <div class="modal-body">
-      <p>Estas seguro de este horario? </p>
-	  <a class="floatr" (click)="perfil()">
+      <h4>Estas seguro de este horario ? </h4>
+	  <a class="floatsimple" (click)="mostrarFinalModal()">
 		<i class="fa fa-angellist my-float"></i>
 	  </a>	
     </div>
@@ -128,6 +122,28 @@
   </div>
 
 </div>
+
+<!-- The Modal Confirmation-->
+<div id="myModalFinalConfirmation" class="modal2">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close-confirmation">&times;</span>
+      <h2>!!!</h2>
+    </div>
+    <div class="modal-body">
+      <h4>Agendado correcto </h4>
+	  <a class="floatsimple" (click)="perfil()">
+		<i class="fa fa-angellist my-float"></i>
+	  </a>	
+    </div>
+    <div class="modal-footer">
+      <h3>iTrainer</h3>
+    </div>
+  </div>
+  </div>
+
 
 
 </body>

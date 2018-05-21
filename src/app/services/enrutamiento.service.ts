@@ -14,6 +14,10 @@ export class EnrutamientoService
 	public root_valoracion3 = "/valoracion3";
 	public root_bienvenido  = "/bienvenido";
 	public root_calendario	= "/calendario";
+	public root_evaluacion  = "/evaluacion";
+	public root_evaluacion2 = "/evaluacion2";
+	public root_evaluacion3 = "/evaluacion3";
+	public root_registrarme = "/registrarse";
 
 	constructor(private _router: Router) { }
 	
@@ -64,5 +68,29 @@ export class EnrutamientoService
 		this._router.navigate([this.root_calendario]);
 		
 	}//calendario
+	
+	evaluacion()
+	{
+		this._router.navigate([this.root_evaluacion]);
+		
+	}//evaluacion
+	
+	evaluacion2()
+	{
+		this._router.navigate([this.root_evaluacion2]);
+		
+	}//evaluacion2
+	
+	evaluacion3()
+	{
+		this._router.navigate([this.root_evaluacion3]);
+		
+	}//evaluacion3
+	
+	registrarme()
+	{
+		this._router.navigate([this.root_registrarme]);
+		
+	}//registrarme
   
 }//NoBorrar

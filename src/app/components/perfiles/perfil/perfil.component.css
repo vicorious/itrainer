@@ -168,7 +168,7 @@ a.float:hover + div.labelcontainer{
   justify-content: space-around;
 }
 .item {
-  background: tomato;
+  background: #003366;
   padding: 5px;
   width: 100%;
   height: 100%;
@@ -388,3 +388,156 @@ a.float2:hover + div.labelcontainerr{
     -moz-pointer-events: none;
     pointer-events: none;
 }
+
+/*************** Modal *******************/
+
+/* The Modal (background) */
+.modal-confirmation {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    /*z-index: 1;*/ /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #C0C0C0; /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    -webkit-animation-name: fadeIn; /* Fade in the background */
+    -webkit-animation-duration: 0.4s;
+    animation-name: fadeIn;
+    animation-duration: 0.4s
+}
+
+/* Modal Content */
+.modal-content-top {
+    position: absolute;
+    top: 0;
+    background-color: #fefefe;
+    width: 100%;
+    -webkit-animation-name: slideIn;
+    -webkit-animation-duration: 0.4s;
+    animation-name: slideIn;
+    animation-duration: 0.4s
+}
+
+
+/* The Close Button */
+.close-confirmation {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close-confirmation:hover,
+.close-confirmation:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header-confirmation {
+    padding: 2px 16px;
+    background-color: #6666FF;
+    color: white;
+}
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-footer-confirmation {
+    padding: 2px 16px;
+    background-color: #6666FF;
+    color: white;
+}
+
+/** Cards **/
+
+.card-info, .card__meta a {
+    display: inline-flex;
+    vertical-align: middle;
+    line-height: 2;
+    font-size: 1rem;
+}
+.card__meta i.small {
+    font-size: 1.5rem;
+}
+.card .card-content .card-title {
+    line-height: 34px;
+}
+
+/** Floating cards personalizados **/
+
+.labelcontainerF{
+	position:fixed;
+	/*bottom:40px;*/
+	top:0;
+	margin-top:80px;
+	right:100px;
+	display:table;
+	visibility: hidden;
+}
+
+.labeltextF{
+	color:#FFF;
+	background:rgba(51,51,51,0.5);
+	display:table-cell;
+	vertical-align:middle;
+	padding:10px;
+	border-radius:3px;
+}
+
+.labelarrowF{
+	display:table-cell;
+	vertical-align:middle;
+	color:#333;
+	opacity:0.5;
+}
+
+.floatF{
+	/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;*/	
+	margin-top:-2%;
+	width:60px;
+	right:40px;
+	height:60px;	
+	position:absolute;	
+	background-color:#06C;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+	cursor: pointer;
+}
+
+.my-floatF{
+	font-size:24px;
+	margin-top:18px;
+}
+
+a.floatF + div.labelcontainerF {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s ease;
+}
+
+a.floatF:hover + div.labelcontainerF{
+  visibility: visible;
+  opacity: 1;
+}
+

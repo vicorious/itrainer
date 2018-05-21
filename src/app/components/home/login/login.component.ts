@@ -78,6 +78,18 @@ export class LoginComponent implements OnInit
 	  
   }//logueo
   
+  /**
+  *
+  *
+  *
+  **/
+  registrarme()
+  {
+	  this.ngProgress.start();  
+	  this._enrutamiento.registrarme();
+	  this.ngProgress.done();	  
+  }//registrarme
+  
 
 
 }//NoBorrar

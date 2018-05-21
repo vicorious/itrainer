@@ -51,8 +51,7 @@ export class CalendarioComponent implements OnInit
   *
   **/
   perfil()
-  {
-	  alert('Agendado correctamente!!');
+  {	  
 	  this.ngProgress.start();  
 	  this._enrutamiento.perfil();
 	  this.ngProgress.done();	  
@@ -68,6 +67,8 @@ export class CalendarioComponent implements OnInit
   {
 	  //Modal confirmation
 	 var modal_confirmation = document.getElementById('myModalConfirmation');	 
+	 var modal = document.getElementById('myModal');
+	 modal.style.display = "none";
 	 modal_confirmation.style.display = "block";
 	 
   }//mostrarModalConfirmacion
@@ -114,17 +115,61 @@ export class CalendarioComponent implements OnInit
 	 {
 		 modal_confirmation.style.display = "none";
 	 });
+	 
+  }//mostrarModal
+  
+  /**
+  *
+  *
+  *
+  **/
+  mostrarFinalModal()
+  {
+	 //Ocultar modal anterior
+	 var modal_confirmation = document.getElementById('myModalConfirmation');	
+	 modal_confirmation.style.display = "none";
+	  // Get the modal
+	 var modal = document.getElementById('myModalFinalConfirmation');
+	 
+	 // Get the button that opens the modal
+	 var btns = document.getElementsByClassName("myBtn");
+	 
+	 //Modal confirmation
+	 var span_confirmation = document.getElementsByClassName("close-confirmation")[0];
+
+	 modal.style.display = "block";
+	 
+	 //setTimeout(5000, this.perfil());	 
+	 
+	 span_confirmation.addEventListener('click', function() 
+	 {
+		 modal.style.display = "none";
+	 });
 
 	 // When the user clicks anywhere outside of the modal, close it
-	 window.addEventListener('click', function(event) 
+	 window.addEventListener('click', (evento) => this.cerrarModal(evento, modal)); 
 	 {
 		 if (event.target == modal) 
 		 {
-			 modal.style.display = "none";
-			 modal_confirmation.style.display = "none";
+			 modal.style.display = "none";			 
 		 }
 	 });
 	 
-  }//mostrarModal
+  }//mostrarFinalModal
+  
+  /**
+  *
+  *
+  *
+  **/
+  cerrarModal(event, modal)
+  {
+	  if (event.target == modal) 
+	  {
+	      modal.style.display = "none";	
+		  this.perfil();
+	  }
+	  
+  }//cerrarModal
 
 }//NoBorrar

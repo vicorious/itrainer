@@ -18,6 +18,10 @@ import { Valoracion2Component } from './components/valoracion/valoracion2/valora
 import { Valoracion3Component } from './components/valoracion/valoracion3/valoracion3.component';
 import { BienvenidoComponent } from './components/welcome/bienvenido/bienvenido.component';
 import { CalendarioComponent } from './components/calendario/calendario/calendario.component';
+import { EvaluacionComponent } from './components/evaluacion/evaluacion/evaluacion.component';
+import { Evaluacion2Component } from './components/evaluacion/evaluacion2/evaluacion2.component';
+import { Evaluacion3Component } from './components/evaluacion/evaluacion3/evaluacion3.component';
+import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 
 const appRoutes: Routes = 
 [
@@ -35,7 +39,11 @@ const appRoutes: Routes =
     Valoracion2Component,
     Valoracion3Component,
     BienvenidoComponent,
-    CalendarioComponent
+    CalendarioComponent,
+    EvaluacionComponent,
+    Evaluacion2Component,
+    Evaluacion3Component,
+    RegistrarseComponent
   ],
   imports: [
     BrowserModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(appRoutes), AppRoutingModule, NgProgressModule
