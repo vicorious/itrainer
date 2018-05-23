@@ -1,0 +1,5 @@
+Flask==0.12.2
+requests==2.13.0
+beautifulSoup4==4.5.3
+psycopg2==2.7.4
+PyGreSQL==5.0.4
