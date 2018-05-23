@@ -54,6 +54,7 @@ export class AgendarComponent implements OnInit
 		});		
 		
 		this.mostrarModal();
+		this.cargarModalErrores();
 		
   }//ngOnInit
   
@@ -76,12 +77,74 @@ export class AgendarComponent implements OnInit
   *
   **/
   cargarProfesores()
-  {
+  {	
+	  var modal = document.getElementById("confirmacionModal");  
+	  if(this.hora == undefined)
+	  {
+		  modal.style.display = "block";
+		  return;
+	  }
+		  
+	  var fecha_correcta = true;
+	  var fecha = /(\d+)\-(\d+)\-(\d+)/g
+	  var now = new Date();
+	  var day = ("0" + now.getDate()).slice(-2);
+	  var month = ("0" + (now.getMonth() + 1)).slice(-2);
+	  
+	  var resultado = fecha.exec(this.hora.toString());
+	  
+	  console.log(resultado);
+	  
+	  var ano = parseInt(resultado[1]);
+	  var mes = parseInt(resultado[2]);
+	  var dia = parseInt(resultado[3]);
+	  
+	  var dia_actual = parseInt(("0" + now.getDate()).slice(-2));
+	  var mes_actual = parseInt(("0" + (now.getMonth() + 1)).slice(-2));
+	  var ano_actual = now.getFullYear();	  	  
+	  
+	  if((dia != dia_actual) || (mes != mes_actual) || (ano != ano_actual))
+		  fecha_correcta = false;
+	  	  	  
 	  this.ngProgress.start();
-	  setTimeout(function(){ console.log("Hello"); }, 15000);
+	  	  	 	  	    
+	  if(fecha_correcta == false)
+	  {
+		  modal.style.display = "block";
+	  }else
+	  {
+		  modal.style.display = "none";
+	  }
+	  console.log(this.hora);
 	  this.ngProgress.done();
 	  
   }//cargarProfesores
+  
+  /**
+  *
+  *
+  *
+  *
+  **/
+  cargarModalErrores()
+  {
+	  var modal = document.getElementById("confirmacionModal");
+	  var close_i = document.getElementById("closeerror");
+	  close_i.addEventListener('click', function(event) 
+	  {
+		  modal.style.display = "none";
+	  });
+	  
+	  // When the user clicks anywhere outside of the modal, close it
+	  window.addEventListener('click', function(event) 
+	  {
+		  if (event.target == modal) 
+		  {
+			  modal.style.display = "none";
+		  }
+	  });	
+	  
+  }//cargarModalErrores
   
   /**
   *
@@ -122,9 +185,12 @@ export class AgendarComponent implements OnInit
 		var day = ("0" + now.getDate()).slice(-2);
 		var month = ("0" + (now.getMonth() + 1)).slice(-2);
 
-		var today = now.getFullYear()+"-"+(month)+"-"+(day) ;   
+		var today = now.getFullYear()+"-"+(month)+"-"+(day);
 
-		(<HTMLInputElement>document.getElementById("agendar_today")).value == today;
+		console.log(today);
+
+		(<HTMLInputElement>document.getElementById("agendar_today")).setAttribute("value",today);
+		(<HTMLInputElement>document.getElementById("agendar_today")).setAttribute("text",today);
 	  
   }//getToday
   

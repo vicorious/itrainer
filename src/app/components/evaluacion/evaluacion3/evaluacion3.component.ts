@@ -62,7 +62,7 @@ export class Evaluacion3Component implements OnInit
   {
 	 this.ngProgress.start();
 	 
-	 var modal2 = document.getElementById('myModal');	 +
+	 var modal2 = document.getElementById('myModal');
 	 modal2.style.display = "none";
 	  // Get the modal
 	 var modal = document.getElementById('myModalC');

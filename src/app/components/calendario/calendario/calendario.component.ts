@@ -147,13 +147,7 @@ export class CalendarioComponent implements OnInit
 	 });
 
 	 // When the user clicks anywhere outside of the modal, close it
-	 window.addEventListener('click', (evento) => this.cerrarModal(evento, modal)); 
-	 {
-		 if (event.target == modal) 
-		 {
-			 modal.style.display = "none";			 
-		 }
-	 });
+	 window.addEventListener('click', (evento) => this.cerrarModal(evento, modal)); 	 
 	 
   }//mostrarFinalModal
   

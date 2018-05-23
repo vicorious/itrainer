@@ -39,7 +39,7 @@
         <h1>Profesores disponibles<br>
             <small>Animate!</small></h1>
 			Cuando quieres tu profesor? <input [(ngModel)]="hora" formControlName="hora" type="date" id="agendar_today" style="margin-right:30px" required/>
-			<a *ngIf="header_form.valid" (click)="cargarProfesores()" class="float-left-bottom">
+			<a (click)="cargarProfesores()" class="float-left-bottom">
 			 <i class="fa fa-search my-float"></i>
 		    </a>
 			<div class="label-container">
@@ -47,9 +47,9 @@
 				<i class="fa fa-search label-arrow"></i>
 			</div>
 			
-			<a (click)="getToday()" style="margin-left:8%; cursor:pointer">
+			<!--a (click)="getToday()" style="margin-left:8%; cursor:pointer">
 			 <i class="fa fa-calendar my-float"></i>
-		    </a>
+		    </a-->
     </div>
     <div class="row active-with-click">
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -709,6 +709,29 @@
 	  <a class="floatr" (click)="calendario()">
 		<i class="fa fa-angellist my-float"></i>
 	  </a>
+	<div class="label-container">
+	<div class="label-text">Eligelo!</div>
+	<i class="fa fa-angellist label-arrow"></i>
+	</div>
+    </div>
+    <div class="modal-footer">
+      <h3>iTrainer</h3>
+    </div>
+  </div>
+
+</div>
+
+<!-- The Modal -->
+<div id="confirmacionModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span id="closeerror" class="close">&times;</span>
+      <h2>Ya casi lo logramos!</h2>
+    </div>
+    <div class="modal-body">      
+      <p>Porfavor, ingresa una fecha valida (Diferente a vacio o mayor a hoy)</p>
 	<div class="label-container">
 	<div class="label-text">Eligelo!</div>
 	<i class="fa fa-angellist label-arrow"></i>
