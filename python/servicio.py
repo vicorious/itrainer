@@ -1,15 +1,11 @@
 from flask       import Flask,jsonify,json
-import urllib3
-import codecs
 from facade_user import ClienteFacade
 import sys
 
 app = Flask(__name__)
 
 @app.route('/login')
-def login(_json_login):
-    #http = urllib3.PoolManager()
-    #r = http.request('GET', 'https://sports-itainment.biahosted.com/generic/prelive.aspx?token=246994625239791&clientTimeZoneOffset=300&lang=es-ES&walletcode=620917&betProduct=mixed&skinid=wplay&parentUrl=https%3A//wplay.co/apuestas#page=prelive')
+def login(_json_login):    
     try:	
         facade = ClienteFacade()
         logueo = facade.logueo(_json_login)
@@ -18,15 +14,31 @@ def login(_json_login):
         else:
             return "FAIL"
     except:
-        print "Error no controlado: {}".format(sys.exc_info()[0])
+        print("Error no controlado: {}".format(sys.exc_info()[0]))
 
+@app.route('/registrarse')
 def registrarse(_json_registro):
     try:
         facade   = ClienteFacade()
         registro = facade.registro(_json_registro)
+        if(registro):
+            return "OK"
+        else:
+            return "FAIL"
     except:
+        print("Error no controlado: {}".format(sys.exc_info()[0]))
 
-    
+@app.route('/olvido_contrasena')
+def olvido_contrasena(_json_olvido):
+    try:
+        facade = ClienteFacade()
+        olvido = facade.olvido_contrasena(_json_olvido)
+        if(olvido):
+            return "OK"
+        else:
+            return "FAIL"
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
 		
 if __name__ == '__main__':
     app.run()

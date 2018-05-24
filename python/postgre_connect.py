@@ -19,6 +19,6 @@ class PostgreConnect:
 
     def conectar(self):
         cadena = "host='{}' dbname='{}' user='{}' password='{}'".format(self.ip + ":" + self.port, self.db, self.user, self.password)
-        print 'La cadena de conexion es: {}'.format(cadena)
+        print('La cadena de conexion es: {}'.format(cadena))
         conexion = psycopg2.connect(cadena)        
         return conexion
