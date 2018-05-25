@@ -43,12 +43,12 @@ class AgendamientoFacade:
             cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
-            print('Error obteniendo el cursor')
+            print('Error obteniendo el cursor facade agendamiento')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
-	
+
     ############ Tipos de agendamiento ###############################
     def tiposAgendamiento(self):
         try:        
@@ -64,6 +64,7 @@ class AgendamientoFacade:
         finally:
             cursor.close()
             self.cerrarConexion()
+        return None
     
     ########### Agendar ##############################################
     def agendar(self, _json):

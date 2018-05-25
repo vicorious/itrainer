@@ -33,7 +33,7 @@ class ValoracionFacade:
             cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
-            print('Error obteniendo el cursor')
+            print('Error obteniendo el cursor facade valoracion')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
             cursor.close()
@@ -54,6 +54,7 @@ class ValoracionFacade:
         finally:            
             cursor.close()
             self.cerrarConexion()
+        return None 
                   
     ############ valoracion por tipo ##############
     def valoracionTipo(self, _json):
@@ -70,7 +71,8 @@ class ValoracionFacade:
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
             cursor.close()
-            self.cerrarConexion()          
+            self.cerrarConexion()
+        return None
     
     ########### Asociar respuesta a la pregunta
     def asociarRespuestaAPregunta(self, _json):
@@ -82,12 +84,14 @@ class ValoracionFacade:
             json_tupla = tuple(json_entrada)
             insert = SQL_INSERT_RESPUESTAS.concat("(%(pregunta_valoracion_id)d, %(respuesta)s)")
             cursor.executemany(insert, json_tupla)
+            return True
         except:
             print('Error asociando la respuesta a la pregunta')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
+        return False
 
     ########## Cerrar conexion ###################
     def cerrarConexion(self):
