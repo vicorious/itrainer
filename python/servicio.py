@@ -9,15 +9,18 @@ import sys
 
 app = Flask(__name__)
 
+OK   = 'OK'
+FAIL = 'FAIL'
+
 @app.route('/login')
 def login(_json_login):    
     try:	
         facade = ClienteFacade()
         logueo = facade.logueo(_json_login)
         if logueo > 0:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error no controlado: {}".format(sys.exc_info()[0]))
 
@@ -27,9 +30,9 @@ def registrarse(_json_registro):
         facade   = ClienteFacade()
         registro = facade.registro(_json_registro)
         if(registro):
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error no controlado: {}".format(sys.exc_info()[0]))
 
@@ -39,9 +42,9 @@ def olvido_contrasena(_json_olvido):
         facade = ClienteFacade()
         olvido = facade.olvido_contrasena(_json_olvido)
         if(olvido):
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -74,9 +77,9 @@ def valoracion_asociar_pregunta_respuesta(_json_asociacion):
         facade = ValoracionFacade()
         valoracion = facade.asociarRespuestaAPregunta(_json_asociacion)
         if valoracion:
-           return "OK"
+           return OK
         else:
-           return "FAIL"
+           return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -99,9 +102,9 @@ def agendar(_json_agendar):
         facade   = AgendamientoFacade()
         agendar  = facade.agendar(_json_agendar)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -111,9 +114,9 @@ def re_agendar(_json_re_agendar):
         facade   = AgendamientoFacade()
         agendar  = facade.re_agendar(_json_re_agendar)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -123,9 +126,9 @@ def cancelar_agenda(_json_cancela_agenda):
         facade   = AgendamientoFacade()
         agendar  = facade.cancelar_agenda(_json_cancela_agenda)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -135,9 +138,9 @@ def calificar_agenda_trainer(_json_califica_agenda):
         facade   = AgendamientoFacade()
         agendar  = facade.calificar_agenda_trainer(_json_califica_agenda)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -147,9 +150,9 @@ def calificar_agenda_usuario(_json_califica_agenda_usuario):
         facade   = AgendamientoFacade()
         agendar  = facade.calificar_agenda_usuario(_json_califica_agenda_usuario)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -159,9 +162,9 @@ def actualizar_costo(_json_actualiza_costo):
         facade   = AgendamientoFacade()
         agendar  = facade.actualizar_costo(_json_actualiza_costo)
         if agendar:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -194,9 +197,9 @@ def asociar_trainer_premio(_json_asociar_premio_trainer):
         facade   = PremioFacade()
         premios  = facade.asociar_trainer_premio(_json_asociar_premio_trainer)
         if premios:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
@@ -207,9 +210,9 @@ def asociar_usuario_premio(_json_asociar_premio_usuario):
         facade   = PremioFacade()
         premios  = facade.asociar_usuario_premio(_json_asociar_premio_usuario)
         if premios:
-            return "OK"
+            return OK
         else:
-            return "FAIL"
+            return FAIL
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
