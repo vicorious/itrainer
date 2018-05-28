@@ -7,11 +7,14 @@ from facade_examen       import ExamenFacade
 from facade_premios      import PremioFacade
 import sys
 
+###### Flask Object ######################################
 app = Flask(__name__)
 
+###### Constantes ##########
 OK   = 'OK'
 FAIL = 'FAIL'
 
+#################### Usuario #############################
 @app.route('/login')
 def login(_json_login):    
     try:	
@@ -217,10 +220,74 @@ def asociar_usuario_premio(_json_asociar_premio_usuario):
         print("Error con controlado: {}".format(sys.exc_info()[0])))
 
 		
+################# Examen ###########################
+@app.route('/crear_examen')
+def crear_examen():
+    try:
+        facade   = ExamenFacade()
+        examen   = facade.crear_examen()
+        if examen:
+            return OK
+        else:
+            return FAIL
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0])))
 
+@app.route('/tipos_examen')
+def tipos_examen():
+    try:
+        facade   = ExamenFacade()
+        tipos    = facade.tipos_examen()
+        return tipos
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
 
+    return None
+
+################## Trainer ##############################
+@app.route('/cualidad_trainer')
+def cualidad_trainer(_json_cualidad_trainer):
+    try:
+        facade   = TrainerFacade()
+        tipos    = facade.cualidad_trainer(_json_cualidad_trainer)
+        return tipos
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
+
+    return None
+
+@app.route('/trainers')
+def trainers():
+    try:
+        facade   = TrainerFacade()
+        trainers = facade.trainers()
+        return trainers
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
+
+    return None
+
+@app.route('/cualidades')
+def trainers():
+    try:
+        facade        = TrainerFacade()
+        cualidades    = facade.cualidades()
+        return cualidades
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
+
+    return None
+
+@app.route('/actualizar_trainer')
+def actualizar_trainer(_json_actualizar_campo_trainer):
+    try:
+        facade   = TrainerFacade()
+        tipos    = facade.actualizar_trainer(_json_actualizar_campo_trainer)
+        return tipos
+    except:
+        print("Error con controlado: {}".format(sys.exc_info()[0])))
+
+    return None
 
 if __name__ == '__main__':
     app.run()
-
-
