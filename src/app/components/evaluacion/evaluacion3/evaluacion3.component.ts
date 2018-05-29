@@ -81,7 +81,7 @@ export class Evaluacion3Component implements OnInit
 	 // When the user clicks anywhere outside of the modal, close it
 	 window.addEventListener('click', (evento) => this.cerrarModal(evento, modal)); 
 	  
-	 this.ngProgress.done();		  
+	 this.ngProgress.done();
 	  
   }//felicitaciones  
   

@@ -109,6 +109,32 @@
 	cursor: pointer;
 }
 
+.float-custom
+{
+		/*position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;*/
+	right:40px;
+	width:60px;
+	/*left:517px;*/
+	height:60px;
+    margin-top:7%;	
+	position:absolute;	
+	top:0;
+	background-color:#536DFE;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #536DFE;
+	cursor: pointer;
+}
+
+.center
+{
+	margin-right: 3%;
+}
+
 a.floatr + div.label-containerr {
   visibility: hidden;
   opacity: 0;

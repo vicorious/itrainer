@@ -30,6 +30,8 @@ export class PerfilComponent implements OnInit
 		
 		this.mostrarModal();
 		
+		this.mostrarModalPuntos();
+		
   }//ngOnInit
   
   /**
@@ -103,5 +105,98 @@ export class PerfilComponent implements OnInit
 	 });
 	 
   }//mostrarModal  
+  
+  /**
+  *
+  *
+  *
+  **/
+  mostrarModalPuntos()
+  {
+	  // Get the modal
+	 var modal = document.getElementById('myModalPuntos');	
+
+	// Get the button that opens the modal
+	 var btns = document.getElementsByClassName("puntos");
+	 
+	 //Modal confirmation
+	 var span = document.getElementsByClassName("close")[0];
+	  
+	 span.addEventListener('click', function() 
+	 {
+		 modal.style.display = "none";
+	 });
+	 
+	 for(var i = 0; i < btns.length; i++)
+	 {
+		 var btn = btns[i];
+		// When the user clicks the button, open the modal 
+		btn.addEventListener('click', function() 
+		{
+			modal.style.display = "block";
+		});
+	 } 	 	
+	 
+  }//mostrarModalPuntos
+  
+    /**
+  *
+  *
+  *
+  **/
+  felicitaciones()
+  {
+	 this.ngProgress.start();
+	 
+	 var modal2 = document.getElementById('myModalPuntos');
+	 modal2.style.display = "none";
+	  // Get the modal
+	 var modal = document.getElementById('myModalC');
+	 	 
+	 // Get the <span> element that closes the modal
+	 var span = document.getElementsByClassName("close")[0];	 	
+
+	 // When the user clicks on <span> (x), close the modal
+	 span.addEventListener('click', function() 
+	 {
+		 modal.style.display = "none";
+	 });
+
+	 modal.style.display = "block";	 
+	  
+	 // When the user clicks anywhere outside of the modal, close it
+	 window.addEventListener('click', (evento) => this.cerrarModal(evento, modal)); 
+	  
+	 this.ngProgress.done();
+	  
+  }//felicitaciones 
+  
+  /**
+  *
+  *
+  *
+  **/
+  cerrarModal(event, modal)
+  {
+	  if (event.target == modal) 
+	  {
+		 modal.style.display = "none";
+		 this.perfil();
+	  }	  
+	  
+  }//cerrarModal
+  
+  /**
+  *
+  *
+  *
+  **/
+  perfil()
+  {
+	  this.ngProgress.start();  
+	  this._enrutamiento.perfil();
+	  this.ngProgress.done();
+	  
+  }//perfil
 
 }//NoBorrar
