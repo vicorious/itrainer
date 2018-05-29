@@ -1,4 +1,4 @@
-from flask               import Flask,jsonify,json
+from flask               import Flask,jsonify,json, request
 from facade_user         import ClienteFacade
 from facade_valoracion   import ValoracionFacade
 from facade_agendamiento import AgendamientoFacade
@@ -15,9 +15,10 @@ OK   = 'OK'
 FAIL = 'FAIL'
 
 #################### Usuario #############################
-@app.route('/login')
-def login(_json_login):    
-    try:	
+@app.route('/login', methods=['POST'])
+def login():    
+    try:
+        _json_login = request.json	
         facade = ClienteFacade()
         logueo = facade.logueo(_json_login)
         if logueo > 0:
@@ -27,9 +28,10 @@ def login(_json_login):
     except:
         print("Error no controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/registrarse')
-def registrarse(_json_registro):
+@app.route('/registrarse', methods=['POST'])
+def registrarse():
     try:
+        _json_registro = request.json
         facade   = ClienteFacade()
         registro = facade.registro(_json_registro)
         if(registro):
@@ -39,9 +41,10 @@ def registrarse(_json_registro):
     except:
         print("Error no controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/olvido_contrasena')
-def olvido_contrasena(_json_olvido):
+@app.route('/olvido_contrasena', methods=['POST'])
+def olvido_contrasena():
     try:
+        _json_olvido = request.json
         facade = ClienteFacade()
         olvido = facade.olvido_contrasena(_json_olvido)
         if(olvido):
@@ -52,7 +55,7 @@ def olvido_contrasena(_json_olvido):
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 ############# Valoraciones ################
-@app.route('/valoracion_default')
+@app.route('/valoracion_default', methods=['GET'])
 def valoracion_default():
     try:
         facade = ValoracionFacade()
@@ -63,9 +66,10 @@ def valoracion_default():
 
     return None
 
-@app.route('/valoracion_tipo')
-def valoracion_tipo(_json_valoracion):
+@app.route('/valoracion_tipo', methods=['POST'])
+def valoracion_tipo():
     try:
+        _json_valoracion = request.json
         facade = ValoracionFacade()
         valoracion = facade.valoracionTipo(_json_valoracion)
         return valoracion
@@ -74,9 +78,10 @@ def valoracion_tipo(_json_valoracion):
 
     return None
 
-@app.route('/asociar_respuesta_valoracion')
-def valoracion_asociar_pregunta_respuesta(_json_asociacion):
+@app.route('/asociar_respuesta_valoracion', methods=['POST'])
+def valoracion_asociar_pregunta_respuesta():
     try:
+        _json_asociacion = request.json
         facade = ValoracionFacade()
         valoracion = facade.asociarRespuestaAPregunta(_json_asociacion)
         if valoracion:
@@ -88,7 +93,7 @@ def valoracion_asociar_pregunta_respuesta(_json_asociacion):
 
 
 ################## Agendamientos #############
-@app.route('/tipos_agendamiento_default')
+@app.route('/tipos_agendamiento_default', methods=['GET'])
 def tipos_agendamiento():
     try:
         facade = AgendamientoFacade()
@@ -99,9 +104,10 @@ def tipos_agendamiento():
 
     return None
 
-@app.route('/agendar')
-def agendar(_json_agendar):
+@app.route('/agendar', methods=['POST'])
+def agendar():
     try:
+        _json_agendar = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.agendar(_json_agendar)
         if agendar:
@@ -111,9 +117,10 @@ def agendar(_json_agendar):
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/re_agendar')
-def re_agendar(_json_re_agendar):
+@app.route('/re_agendar', methods=['POST'])
+def re_agendar():
     try:
+        _json_re_agendar = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.re_agendar(_json_re_agendar)
         if agendar:
@@ -123,9 +130,10 @@ def re_agendar(_json_re_agendar):
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/cancela_agenda')
-def cancelar_agenda(_json_cancela_agenda):
+@app.route('/cancela_agenda', methods=['POST'])
+def cancelar_agenda():
     try:
+        _json_cancela_agenda = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.cancelar_agenda(_json_cancela_agenda)
         if agendar:
@@ -135,9 +143,10 @@ def cancelar_agenda(_json_cancela_agenda):
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/calificar_agenda_trainer')
-def calificar_agenda_trainer(_json_califica_agenda):
+@app.route('/calificar_agenda_trainer', methods=['POST'])
+def calificar_agenda_trainer():
     try:
+        _json_califica_agenda = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.calificar_agenda_trainer(_json_califica_agenda)
         if agendar:
@@ -147,9 +156,10 @@ def calificar_agenda_trainer(_json_califica_agenda):
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/calificar_agenda_trainer')
-def calificar_agenda_usuario(_json_califica_agenda_usuario):
+@app.route('/calificar_agenda_trainer', methods=['POST'])
+def calificar_agenda_usuario():
     try:
+        _json_califica_agenda_usuario = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.calificar_agenda_usuario(_json_califica_agenda_usuario)
         if agendar:
@@ -159,9 +169,10 @@ def calificar_agenda_usuario(_json_califica_agenda_usuario):
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/actualizar_costo')
-def actualizar_costo(_json_actualiza_costo):
+@app.route('/actualizar_costo', methods=['POST'])
+def actualizar_costo():
     try:
+        _json_actualiza_costo = request.json
         facade   = AgendamientoFacade()
         agendar  = facade.actualizar_costo(_json_actualiza_costo)
         if agendar:
@@ -172,7 +183,7 @@ def actualizar_costo(_json_actualiza_costo):
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 ################# Premios ########################
-@app.route('/premios_trainer')
+@app.route('/premios_trainer', methods=['GET'])
 def premios_trainer():
     try:
         facade   = PremioFacade()
@@ -183,7 +194,7 @@ def premios_trainer():
 
     return None
 
-@app.route('/premios_usuario')
+@app.route('/premios_usuario', methods=['GET'])
 def premios_usuario():
     try:
         facade   = PremioFacade()
@@ -194,9 +205,10 @@ def premios_usuario():
 
     return None
 
-@app.route('/asociar_trainer_premio')
-def asociar_trainer_premio(_json_asociar_premio_trainer):
+@app.route('/asociar_trainer_premio', methods=['POST'])
+def asociar_trainer_premio():
     try:
+        _json_asociar_premio_trainer = request.json
         facade   = PremioFacade()
         premios  = facade.asociar_trainer_premio(_json_asociar_premio_trainer)
         if premios:
@@ -207,9 +219,10 @@ def asociar_trainer_premio(_json_asociar_premio_trainer):
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 
-@app.route('/asociar_usuario_premio')
-def asociar_usuario_premio(_json_asociar_premio_usuario):
+@app.route('/asociar_usuario_premio', methods=['POST'])
+def asociar_usuario_premio():
     try:
+        _json_asociar_premio_usuario = request.json
         facade   = PremioFacade()
         premios  = facade.asociar_usuario_premio(_json_asociar_premio_usuario)
         if premios:
@@ -221,7 +234,7 @@ def asociar_usuario_premio(_json_asociar_premio_usuario):
 
 		
 ################# Examen ###########################
-@app.route('/crear_examen')
+@app.route('/crear_examen', methods=['GET'])
 def crear_examen():
     try:
         facade   = ExamenFacade()
@@ -233,7 +246,7 @@ def crear_examen():
     except:
         print('Error no controlado: {}'.format(sys.exc_info()[0]))
 
-@app.route('/tipos_examen')
+@app.route('/tipos_examen', methods=['GET'])
 def tipos_examen():
     try:
         facade   = ExamenFacade()
@@ -245,9 +258,10 @@ def tipos_examen():
     return None
 
 ################## Trainer ##############################
-@app.route('/cualidad_trainer')
-def cualidad_trainer(_json_cualidad_trainer):
+@app.route('/cualidad_trainer', methods=['POST'])
+def cualidad_trainer():
     try:
+        _json_cualidad_trainer = request.json
         facade   = TrainerFacade()
         tipos    = facade.cualidad_trainer(_json_cualidad_trainer)
         return tipos
@@ -256,7 +270,7 @@ def cualidad_trainer(_json_cualidad_trainer):
 
     return None
 
-@app.route('/trainers')
+@app.route('/trainers', methods=['GET'])
 def trainers():
     try:
         facade   = TrainerFacade()
@@ -267,7 +281,7 @@ def trainers():
 
     return None
 
-@app.route('/cualidades')
+@app.route('/cualidades', methods=['GET'])
 def cualidades():
     try:
         facade        = TrainerFacade()
@@ -278,9 +292,10 @@ def cualidades():
 
     return None
 
-@app.route('/actualizar_trainer')
-def actualizar_trainer(_json_actualizar_campo_trainer):
+@app.route('/actualizar_trainer', methods=['POST'])
+def actualizar_trainer():
     try:
+        _json_actualizar_campo_trainer = request.json
         facade   = TrainerFacade()
         tipos    = facade.actualizar_trainer(_json_actualizar_campo_trainer)
         return tipos
@@ -289,5 +304,6 @@ def actualizar_trainer(_json_actualizar_campo_trainer):
 
     return None
 
+####### Main ############
 if __name__ == '__main__':
     app.run()
