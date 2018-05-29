@@ -15,7 +15,7 @@ class PremioFacade:
     SQL_USUARIO_PREMIOS              = "INSERT INTO USUARIO_PREMIO (USUARIO_ID, PREMIO_USUARIO_ID, FECHA_RECLAMACION_PREMIO) VALUES({},{}, '{}')"
 
     ###### Constructor #######
-    def __init__:
+    def __init__(self):
         pass
 
     ############ retorna el cursor para poder interactuar con la DB #######

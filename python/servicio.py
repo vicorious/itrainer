@@ -49,7 +49,7 @@ def olvido_contrasena(_json_olvido):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 ############# Valoraciones ################
 @app.route('/valoracion_default')
@@ -59,7 +59,7 @@ def valoracion_default():
         valoracion = facade.valoracionDefault()
         return valoracion
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -70,7 +70,7 @@ def valoracion_tipo(_json_valoracion):
         valoracion = facade.valoracionTipo(_json_valoracion)
         return valoracion
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -84,7 +84,7 @@ def valoracion_asociar_pregunta_respuesta(_json_asociacion):
         else:
            return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 
 ################## Agendamientos #############
@@ -95,7 +95,7 @@ def tipos_agendamiento():
         tipos  = facade.tiposAgendamiento()
         return tipos
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -109,7 +109,7 @@ def agendar(_json_agendar):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 @app.route('/re_agendar')
 def re_agendar(_json_re_agendar):
@@ -121,7 +121,7 @@ def re_agendar(_json_re_agendar):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 @app.route('/cancela_agenda')
 def cancelar_agenda(_json_cancela_agenda):
@@ -133,7 +133,7 @@ def cancelar_agenda(_json_cancela_agenda):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 @app.route('/calificar_agenda_trainer')
 def calificar_agenda_trainer(_json_califica_agenda):
@@ -145,7 +145,7 @@ def calificar_agenda_trainer(_json_califica_agenda):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 @app.route('/calificar_agenda_trainer')
 def calificar_agenda_usuario(_json_califica_agenda_usuario):
@@ -157,7 +157,7 @@ def calificar_agenda_usuario(_json_califica_agenda_usuario):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 @app.route('/actualizar_costo')
 def actualizar_costo(_json_actualiza_costo):
@@ -169,7 +169,7 @@ def actualizar_costo(_json_actualiza_costo):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 ################# Premios ########################
 @app.route('/premios_trainer')
@@ -179,7 +179,7 @@ def premios_trainer():
         premios  = facade.premios_trainer()
         return premios
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -190,7 +190,7 @@ def premios_usuario():
         premios  = facade.premios_usuario()
         return premios
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -204,7 +204,7 @@ def asociar_trainer_premio(_json_asociar_premio_trainer):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 
 @app.route('/asociar_usuario_premio')
@@ -217,7 +217,7 @@ def asociar_usuario_premio(_json_asociar_premio_usuario):
         else:
             return FAIL
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
 		
 ################# Examen ###########################
@@ -231,7 +231,7 @@ def crear_examen():
         else:
             return FAIL
     except:
-        print('Error no controlado: {}'.format(sys.exc_info()[0])))
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))
 
 @app.route('/tipos_examen')
 def tipos_examen():
@@ -240,7 +240,7 @@ def tipos_examen():
         tipos    = facade.tipos_examen()
         return tipos
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -252,7 +252,7 @@ def cualidad_trainer(_json_cualidad_trainer):
         tipos    = facade.cualidad_trainer(_json_cualidad_trainer)
         return tipos
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -263,18 +263,18 @@ def trainers():
         trainers = facade.trainers()
         return trainers
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
 @app.route('/cualidades')
-def trainers():
+def cualidades():
     try:
         facade        = TrainerFacade()
         cualidades    = facade.cualidades()
         return cualidades
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 
@@ -285,7 +285,7 @@ def actualizar_trainer(_json_actualizar_campo_trainer):
         tipos    = facade.actualizar_trainer(_json_actualizar_campo_trainer)
         return tipos
     except:
-        print("Error con controlado: {}".format(sys.exc_info()[0])))
+        print("Error con controlado: {}".format(sys.exc_info()[0]))
 
     return None
 

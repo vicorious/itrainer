@@ -10,9 +10,7 @@ class ExamenFacade:
 
     SQL_TIPOS_EXAMEN              = "SELECT ID, NOMBRE, PUNTOS_ASIGNAR FROM TIPO_EXAMEN"
 
-    SQL_PREGUNTA_TIPO             = "SELECT t.id, t.nombre, p.id, p.nombre"+
-                                    "  FROM TIPO_EXAMEN t  INNER JOIN PREGUNTA_EXAMEN_TRAINER p"+
-                                    "    ON t.id = p.tipo_examen_id"
+    SQL_PREGUNTA_TIPO             = "SELECT t.id, t.nombre, p.id, p.nombre"+"  FROM TIPO_EXAMEN t  INNER JOIN PREGUNTA_EXAMEN_TRAINER p"+"    ON t.id = p.tipo_examen_id"
 
     SQL_ASOCIAR_RESPUESTAS        = "INSERT INTO RESPUESTA_EXAMEN_TRAINER (PREGUNTA_EXAMEN_TRAINER_ID, RESPUESTA) VALUES "
 

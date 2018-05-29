@@ -6,15 +6,9 @@ import psycopg2.extras
 class ValoracionFacade:
 
      ## Tipo valoracion = 1 es el tipo de valoracion default (Valoracion para todos los usuarios)
-    SQL_VALORACIONES_DEFAULT = "SELECT v.nombre, t.nombre, p.nombre, p.id "+
-                                " FROM VALORACION v 			    INNER JOIN TIPO_VALORACION t "+
-                                 "  ON v.tipo_valoracion_id = t.id  INNER JOIN PREGUNTA_VAlORACION p"+
-                                 "  ON t.id = p.tipo_valoracion_id  WHERE TIPO_VALORACION = 1"
+    SQL_VALORACIONES_DEFAULT = "SELECT v.nombre, t.nombre, p.nombre, p.id "+" FROM VALORACION v                 INNER JOIN TIPO_VALORACION t "+"  ON v.tipo_valoracion_id = t.id  INNER JOIN PREGUNTA_VAlORACION p"+"  ON t.id = p.tipo_valoracion_id  WHERE TIPO_VALORACION = 1"
 
-    SQL_VALORACIONES_TIPO    = "SELECT v.nombre, t.nombre, p.nombre, p.id "+
-                                " FROM VALORACION v 			    INNER JOIN TIPO_VALORACION t "+
-                                 "  ON v.tipo_valoracion_id = t.id  INNER JOIN PREGUNTA_VAlORACION p"+
-                                 "  ON t.id = p.tipo_valoracion_id  WHERE TIPO_VALORACION = {}"
+    SQL_VALORACIONES_TIPO    = "SELECT v.nombre, t.nombre, p.nombre, p.id "+" FROM VALORACION v                 INNER JOIN TIPO_VALORACION t "+"  ON v.tipo_valoracion_id = t.id  INNER JOIN PREGUNTA_VAlORACION p"+"  ON t.id = p.tipo_valoracion_id  WHERE TIPO_VALORACION = {}"
 
     SQL_INSERT_RESPUESTAS     = "INSERT INTO RESPUESTA_VALORACION VALUES "
 
