@@ -14,6 +14,8 @@ class PremioFacade:
 
     SQL_USUARIO_PREMIOS              = "INSERT INTO USUARIO_PREMIO (USUARIO_ID, PREMIO_USUARIO_ID, FECHA_RECLAMACION_PREMIO) VALUES({},{}, '{}')"
 
+    conexion = None
+
     ###### Constructor #######
     def __init__(self):
         pass
@@ -24,14 +26,13 @@ class PremioFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
             print('Error obteniendo el cursor de facade premios')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
-            cursor.close()
-            self.cerrarConexion()
+            pass
 
     ######### Premios para los trainer #############
     def premios_trainer(self):
@@ -104,4 +105,8 @@ class PremioFacade:
             cursor.close()
             self.cerrarConexion()
         return False
+
+    ########## Cerrar conexion ###################
+    def cerrarConexion(self):
+         self.conexion.close()
         

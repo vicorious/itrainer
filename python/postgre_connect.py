@@ -1,6 +1,4 @@
 import psycopg2
-#note that we have to import the Psycopg2 extras library!
-import psycopg2.extras
 
 class PostgreConnect:
     password = ''
@@ -18,7 +16,7 @@ class PostgreConnect:
         self.db       = db
 
     def conectar(self):
-        cadena = "host='{}' dbname='{}' user='{}' password='{}'".format(self.ip + ":" + self.port, self.db, self.user, self.password)
+        cadena = "host='{}' dbname='{}' user='{}' password='{}'".format(self.ip, self.db, self.user, self.password)
         print('La cadena de conexion es: {}'.format(cadena))
         conexion = psycopg2.connect(cadena)        
         return conexion

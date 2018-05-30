@@ -156,7 +156,7 @@ def calificar_agenda_trainer():
     except:
         print("Error con controlado: {}".format(sys.exc_info()[0]))
 
-@app.route('/calificar_agenda_trainer', methods=['POST'])
+@app.route('/calificar_agenda_usuario', methods=['POST'])
 def calificar_agenda_usuario():
     try:
         _json_califica_agenda_usuario = request.json

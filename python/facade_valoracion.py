@@ -24,14 +24,13 @@ class ValoracionFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
             print('Error obteniendo el cursor facade valoracion')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
-            cursor.close()
-            self.cerrarConexion()
+            pass
 
     ############ valoracion ####################### 
     def valoracionDefault(self):

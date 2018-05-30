@@ -21,14 +21,13 @@ class ClienteFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
             print('Error obteniendo el cursor facade user')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))		
         finally:            
-            cursor.close()
-            self.cerrarConexion()
+            pass
 
     ########################### Logueo ###############
     def logueo(self, _json):
@@ -47,7 +46,7 @@ class ClienteFacade:
             cursor.close()
             self.cerrarConexion()
         return 0
-    
+
      ######################### Registrarme ############
     def registrarme(self, _json):
         insert = False

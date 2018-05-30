@@ -16,6 +16,8 @@ class ExamenFacade:
 
     SQL_ACTUALIZAR_CALIFICACION   = "UPDATE EXAMEN SET CALIFICACION = {} WHERE ID = {}"
 
+    conexion = None
+
 
     ####### Constructor ############
     def __init__(self):
@@ -27,14 +29,13 @@ class ExamenFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
             print('Error obteniendo el cursor de facade examen')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
-            cursor.close()
-            self.cerrarConexion()
+            pass
 
     ############ crear examen ###############################
     def crear_examen(self):
@@ -90,3 +91,7 @@ class ExamenFacade:
             cursor.close()
             self.cerrarConexion()
         return False
+
+    ########## Cerrar conexion ###################
+    def cerrarConexion(self):
+         self.conexion.close()

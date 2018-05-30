@@ -27,6 +27,8 @@ class AgendamientoFacade:
     SQL_CALIFICAR_USUARIO           = "UPDATE AGENDA SET CALIFICACION_USUARIO = {}, ESTADO = '{}' WHERE ID = {}"
 
     SQL_ACTUALIZAR_COSTO            = "UPDATE AGENDA SET COSTO = {}, ESTADO = '{}' WHERE ID = {}"
+
+    conexion = None    
 	
 	
     ####### Constructor ############
@@ -39,14 +41,13 @@ class AgendamientoFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor('cursor_unique_name', cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except:
             print('Error obteniendo el cursor facade agendamiento')
             raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
         finally:            
-            cursor.close()
-            self.cerrarConexion()
+            pass
 
     ############ Tipos de agendamiento ###############################
     def tiposAgendamiento(self):
@@ -174,4 +175,8 @@ class AgendamientoFacade:
         finally:            
             cursor.close()
             self.cerrarConexion()
-        return False		
+        return False
+
+    ########## Cerrar conexion ###################
+    def cerrarConexion(self):
+         self.conexion.close()		
