@@ -15,20 +15,14 @@ export class RenderizadorService
   
 	/**
 	*
-	* Valoraciones por tipo
+	* Trainers
 	*
 	**/
-	trainers(_json):
+	trainers(_json)
 	{
-		_json.forEach(elemento =>
+		for(let elemento of _json)
 		{
-			/**
-			*
-			*
-			* Construccion
-			*
-			*
-			**/
+
 			var div_padre 			= document.createElement('div');
 			var article   			= document.createElement('article');
 			// Tittle
@@ -54,13 +48,7 @@ export class RenderizadorService
 			var a_linkedin			= document.createElement('a');
 			var a_google			= document.createElement('a');
 			
-			/**
-			*
-			*
-			* Asinaciones Clases
-			*
-			*
-			**/
+
 			
 			// Parents
 			div_padre.className   		= 'col-md-4 col-sm-6 col-xs-12';
@@ -83,13 +71,7 @@ export class RenderizadorService
 			a_linkedin.className		= 'fa fa-fw fa-linkedin mouse';
 			a_google.className			= 'fa fa-fw fa-google-plus mouse';
 			
-			/**
-			*
-			*
-			* Iteraciones
-			*
-			*
-			**/
+
 			
 			//title
 			span_tittle.innerHTML 		= elemento.nombre;
@@ -104,14 +86,7 @@ export class RenderizadorService
 			a_twitter.innerHTML			= elemento.twitter;
 			a_linkedin.innerHTML		= elemento.linkedin;
 			a_google					= elemento.instagram;
-			
-			/**
-			*
-			*
-			* Unir padres
-			*
-			*
-			**/
+	
 			
 			// Title
 			strong_tittle.appendChild(i_tittle);
@@ -143,8 +118,220 @@ export class RenderizadorService
 			
 			div_padre.appendChild(article);						
 			
-		});//jsonEach
+		}//jsonEach
 		
 	}//trainers
+	
+	/**
+	*
+	* Valoraciones default
+	*
+	**/
+	valoraciones_default(_json)
+	{
+		var div_parent      = document.createElement("div");
+		var div_container   = document.createElement("div");
+		//Contact
+		var div_contact		= document.createElement("div");
+		var img_contact     = document.createElement("img");
+		
+		//Form
+		var _form			= document.createElement("form");
+		var span_form		= document.createElement("span");
+		
+		//Botones
+		var div_boton		= document.createElement("div");
+		var button_enviar	= document.createElement("button");
+		var span_button		= document.createElement("span");
+		var i_button		= document.createElement("i");
+		
+		/**
+		*
+		* Asignaciones antes de iterar
+		*
+		**/
+		div_parent.className 	= "contact1";
+		div_container.className = "container-contact1";
+		
+		//IMG
+		img_contact.setAttribute("src", _json.src_img);
+		img_contact.setAttribute("alt", "IMG");
+		
+		div_contact.setAttribute("data-tilt");
+		div_contact.className = "contact1-pic js-tilt";
+		
+		// Form
+		_form.className = "contact1-form validate-form";
+		span_form.className = "contact1-form-title";		
+		
+		/**
+		*
+		* Jerarquia
+		*
+		**/
+		_form.appendChild(span_form);		
+		div_contact.appendChild(img_contact);
+		
+		div_container.appendChild(div_contact);
+		
+		
+		for(let elemento of _json.questions)
+		{
+			var input_elemento  = null;
+			var div_elemento 	= document.createElement("div");
+			var span_elemento      = document.createElement("span");	
+			
+			if(elemento.tipo == 'input')
+			{
+				input_elemento = document.createElement("input");
+				input_elemento.setAttribute("type","text");
+			}else if(elemento.tipo == 'textarea')
+			{
+				input_elemento = document.createElement("textarea");
+			}else
+			{
+				input_elemento = document.createElement("input");
+				input_elemento.setAttribute("type","text");
+			}
+								
+			div_elemento.className = "wrap-input1 validate-input";
+			div_elemento.setAttribute("data-validate",elemento.mensaje_alerta);
+			
+			input_elemento.className = "input1";
+			input.setAttribute("name",elemento.nombre);
+			input.setAttribute("placeholder", elemento.nombre);
+			
+			span_elemento.className = "shadow-input1";
+			
+			div_elemento.appendChild(input_elemento);
+			div_elemento.appendChild(span_elemento);
+			
+			_form.appendChild(div_elemento);
+			
+		}//for
+		
+		//Botones
+		
+		span_button.appendChild(i_button);
+		button_enviar.appendChild(span_button);
+		
+		div_boton.appendChild(button_enviar);
+		
+		_form.appendChild(div_boton);
+		
+		div_container.appendChild(_form);
+		
+		div_parent.appendChild(div_container);
+						
+	}//valoraciones
+	
+	/**
+	*
+	* Valoraciones default
+	*
+	**/
+	evaluaciones(_json)
+	{
+		var div_parent      = document.createElement("div");
+		var div_container   = document.createElement("div");
+		//Contact
+		var div_contact		= document.createElement("div");
+		var img_contact     = document.createElement("img");
+		
+		//Form
+		var _form			= document.createElement("form");
+		var span_form		= document.createElement("span");
+		
+		//Botones
+		var div_boton		= document.createElement("div");
+		var button_enviar	= document.createElement("button");
+		var span_button		= document.createElement("span");
+		var i_button		= document.createElement("i");
+		
+		/**
+		*
+		* Asignaciones antes de iterar
+		*
+		**/
+		div_parent.className 	= "contact1";
+		div_container.className = "container-contact1";
+		
+		//IMG
+		img_contact.setAttribute("src", _json.src_img);
+		img_contact.setAttribute("alt", "IMG");
+		
+		div_contact.setAttribute("data-tilt");
+		div_contact.className = "contact1-pic js-tilt";
+		
+		// Form
+		_form.className = "contact1-form validate-form";
+		span_form.className = "contact1-form-title";		
+		
+		/**
+		*
+		* Jerarquia
+		*
+		**/
+		_form.appendChild(span_form);		
+		div_contact.appendChild(img_contact);
+		
+		div_container.appendChild(div_contact);
+		
+		
+		for(let elemento of _json.questions)
+		{
+			var input_elemento  = null;
+			var div_elemento 	= document.createElement("div");
+			var span_elemento      = document.createElement("span");	
+			
+			if(elemento.tipo == 'input')
+			{
+				input_elemento = document.createElement("input");
+				input_elemento.setAttribute("type","text");
+			}else if(elemento.tipo == 'textarea')
+			{
+				input_elemento = document.createElement("textarea");
+			}else
+			{
+				input_elemento = document.createElement("input");
+				input_elemento.setAttribute("type","text");
+			}
+								
+			div_elemento.className = "wrap-input1 validate-input";
+			div_elemento.setAttribute("data-validate",elemento.mensaje_alerta);
+			
+			input_elemento.className = "input1";
+			input.setAttribute("name",elemento.nombre);
+			input.setAttribute("placeholder", elemento.nombre);
+			
+			span_elemento.className = "shadow-input1";
+			
+			div_elemento.appendChild(input_elemento);
+			div_elemento.appendChild(span_elemento);
+			
+			_form.appendChild(div_elemento);
+			
+		}//for
+		
+		//Botones
+		
+		span_button.appendChild(i_button);
+		button_enviar.appendChild(span_button);
+		
+		div_boton.appendChild(button_enviar);
+		
+		_form.appendChild(div_boton);
+		
+		div_container.appendChild(_form);
+		
+		div_parent.appendChild(div_container);
+						
+	}//evaluaciones	
+	
+	perfil_informacion_general(_json)
+	{
+		
+	}
+	
 
 }//NoBorrar

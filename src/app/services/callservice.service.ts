@@ -41,30 +41,30 @@ export class CallserviceService
 
 	constructor(private _http: Http) 
 	{
-		this.url_valoracion_por_tipo 		= HOST+"/valoracion_tipo";
-		this.url_trainers			 		= HOST+"/trainers";
-		this.url_login				 		= HOST+"/login";
-		this.url_registrarse		 		= HOST+"/registrarse";
-		this.url_olvido_contrasena	 		= HOST+"/olvido_contrasena";
-		this.url_valoracion_default	 		= HOST+"/valoracion_default";
-		this.url_valoracion_por_tipo 		= HOST+"/valoracion_tipo";
-		this.url_asociar_respuesta_pregunta = HOST+"/asociar_respuesta_valoracion";
-		this.url_tipos_agendamiento			= HOST+"/tipos_agendamiento_default";
-		this.url_agendar					= HOST+"/agendar";
-		this.url_re_agendar					= HOST+"/re_agendar";
-		this.url_cancelar_agenda			= HOST+"/cancela_agenda";
-		this.url_calificar_agenda_trainer	= HOST+"/calificar_agenda_trainer";
-		this.url_calificar_agenda_usuario   = HOST+"/calificar_agenda_usuario";
-		this.url_actualizar_costo			= HOST+"/actualizar_costo";
-		this.url_premios_trainer			= HOST+"/premios_trainer";
-		this.url_premios_usuario			= HOST+"/premios_usuario";
-		this.url_asociar_trainer_premio		= HOST+"/asociar_trainer_premio";
-		this.url_asociar_usuario_premio     = HOST+"/asociar_usuario_premio";
-		this.url_crear_examen				= HOST+"/crear_examen";
-		this.url_tipos_examen				= HOST+"/tipos_examen";
-		this.url_cualidad_trainer			= HOST+"/cualidad_trainer";
-		this.url_cualidades					= HOST+"/cualidades";
-		this.url_actualiza_trainer			= HOST+"/actualizar_trainer";
+		this.url_valoracion_por_tipo 		= this.HOST+"/valoracion_tipo";
+		this.url_trainers			 		= this.HOST+"/trainers";
+		this.url_login				 		= this.HOST+"/login";
+		this.url_registrarse		 		= this.HOST+"/registrarse";
+		this.url_olvido_contrasena	 		= this.HOST+"/olvido_contrasena";
+		this.url_valoracion_default	 		= this.HOST+"/valoracion_default";
+		this.url_valoracion_por_tipo 		= this.HOST+"/valoracion_tipo";
+		this.url_asociar_respuesta_pregunta = this.HOST+"/asociar_respuesta_valoracion";
+		this.url_tipos_agendamiento			= this.HOST+"/tipos_agendamiento_default";
+		this.url_agendar					= this.HOST+"/agendar";
+		this.url_re_agendar					= this.HOST+"/re_agendar";
+		this.url_cancelar_agenda			= this.HOST+"/cancela_agenda";
+		this.url_calificar_agenda_trainer	= this.HOST+"/calificar_agenda_trainer";
+		this.url_calificar_agenda_usuario   = this.HOST+"/calificar_agenda_usuario";
+		this.url_actualizar_costo			= this.HOST+"/actualizar_costo";
+		this.url_premios_trainer			= this.HOST+"/premios_trainer";
+		this.url_premios_usuario			= this.HOST+"/premios_usuario";
+		this.url_asociar_trainer_premio		= this.HOST+"/asociar_trainer_premio";
+		this.url_asociar_usuario_premio     = this.HOST+"/asociar_usuario_premio";
+		this.url_crear_examen				= this.HOST+"/crear_examen";
+		this.url_tipos_examen				= this.HOST+"/tipos_examen";
+		this.url_cualidad_trainer			= this.HOST+"/cualidad_trainer";
+		this.url_cualidades					= this.HOST+"/cualidades";
+		this.url_actualiza_trainer			= this.HOST+"/actualizar_trainer";
 							
 	}//Constructor
   
@@ -97,7 +97,7 @@ export class CallserviceService
 	**/
 	trainers():Observable<any>
 	{
-		return this._http.post(this.url_trainers,_json).map
+		return this._http.post(this.url_trainers).map
 		(
 			res =>
 			{															
