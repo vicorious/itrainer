@@ -1,27 +1,70 @@
-# Trainers
+## Itrainer
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+# Aplicacion encargada de generar agendamiento a *Personal Trainer*
 
-## Development server
+## Tecnologias:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Typescript 2.5.3
+2. Angular CLI 1.7.4
+3. Angular 5.2.11
+4. CSS3
+5. HTML5
+6. Bootstrap
+7. Font-awesome
+8. JQuery
+9. Glyphicon
+10. Python 3.5.1
 
-## Code scaffolding
+### Algunos pantallazos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+Login: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/images/login.PNG "Login"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Valoracion 1: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion1.PNG "Valoracion"
 
-## Running unit tests
+Valoracion 2: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion2.PNG "Valoracion"
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Valoracion 3: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion3.PNG "Valoracion"
 
-## Running end-to-end tests
+Retroalimentacion: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/images/retroalimentacion.PNG "Valoracion"
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Animaciones
+---
+Agendar: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/gifs/agendar.gif "Agendar"
 
-## Further help
+Perfil: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/gifs/perfil.gif "Perfil"
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Flujo agendar: 
+![alt text][logo]
+[logo]: https://github.com/vicorious/itrainer/raw/gifs/flujo-agendar.gif "Agendar"
+
+
+# Arquitectura
+
+Tiene 3 componentes principales (Front, Back y DB):
+
+1. Front:
+
+..* Construido con HTML5 - CSS3 - Typescript y Javascript.
+
+2. Back:
+
+..* Todo el back se encuentra construido en Python (3.5.1)
+
+3. DB:
+
+..* Elegimos una base de datos Open Source y robusta como lo es PostgreSQL (9.6)
