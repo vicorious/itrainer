@@ -14,6 +14,14 @@ class PremioFacade:
 
     SQL_USUARIO_PREMIOS              = "INSERT INTO USUARIO_PREMIO (USUARIO_ID, PREMIO_USUARIO_ID, FECHA_RECLAMACION_PREMIO) VALUES({},{}, '{}')"
 
+    SQL_PROVEEDOR_USUARIO			 = "INSERT INTO PROVEEDOR_USUARIO (NOMBRE, DIRECCION, FECHA_INSCRIPCION) VALUES ('{}','{}','{}')"
+
+    SQL_PROVEEDOR_TRAINER			 = "INSERT INTO PROVEEDOR_TRAINER (NOMBRE, DIRECCION, FECHA_INSCRIPCION) VALUES ('{}','{}','{}')"
+
+    SQL_PREMIO_USUARIO_PROVEEDOR	 = "INSERT INTO PREMIO_USUARIO_PROVEEDOR (PREMIO_USUARIO_ID, PROVEEDOR_USUARIO_ID, FECHA_INSCRIPCION) VALUES ({},{},'{}')"
+
+    SQL_PREMIO_TRAINER_PROVEEDOR	 = "INSERT INTO PREMIO_TRAINER_PROVEEDOR (PREMIO_TRAINER_ID, PROVEEDOR_TRAINER_ID, FECHA_INSCRIPCION) VALUES ({},{},'{}')"
+
     conexion = None
 
     ###### Constructor #######
@@ -30,7 +38,7 @@ class PremioFacade:
             return cursor
         except:
             print('Error obteniendo el cursor de facade premios')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
         finally:            
             pass
 
@@ -45,7 +53,7 @@ class PremioFacade:
             return filas
         except:
             print('Error en premios trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -62,7 +70,7 @@ class PremioFacade:
             return filas
         except:
             print('Error en premios usuarios')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -81,7 +89,7 @@ class PremioFacade:
             return True
         except:
             print('Error asociar trainer premio')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -100,7 +108,83 @@ class PremioFacade:
             return True
         except:
             print('Error asociar usuario premio')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+        finally:
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############## Inscribe un proveedor usuario ############
+    def proveedor_usuario_inscripcion(self, _json):
+        try:        
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada  = json.loads(_json)
+            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            insert        = SQL_PROVEEDOR_USUARIO.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
+            cursor.execute(insert)
+            return True
+        except:
+            print('Error asociar proveedor_usuario_inscripcion')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+        finally:
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############## Inscribe un proveedor trainer ############
+    def proveedor_trainer_inscripcion(self, _json):
+        try:        
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada  = json.loads(_json)
+            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            insert        = SQL_PROVEEDOR_TRAINER.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
+            cursor.execute(insert)
+            return True
+        except:
+            print('Error asociar proveedor_trainer_inscripcion')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+        finally:
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############## Asocia un premio a un proveedor usuario ############
+    def asociar_premio_proveedor_usuario(self, _json):
+        try:        
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada  = json.loads(_json)
+            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            insert        = SQL_PREMIO_USUARIO_PROVEEDOR.format(json_entrada["premio_usuario_id"],json_entrada["proveedor_usuario_id"], fecha_actual)
+            cursor.execute(insert)
+            return True
+        except:
+            print('Error asociar_premio_proveedor_usuario')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+        finally:
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############## Asocia un premio a un proveedor trainer ############
+    def asociar_premio_proveedor_trainer(self, _json):
+        try:        
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada  = json.loads(_json)
+            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            insert        = SQL_PREMIO_TRAINER_PROVEEDOR.format(json_entrada["premio_trainer_id"],json_entrada["proveedor_trainer_id"], fecha_actual)
+            cursor.execute(insert)
+            return True
+        except:
+            print('Error asociar_premio_proveedor_trainer')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
         finally:
             cursor.close()
             self.cerrarConexion()

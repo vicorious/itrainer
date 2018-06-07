@@ -6,7 +6,9 @@ import psycopg2.extras
 class ClienteFacade:
 
     SQL_LOGUEO   = "SELECT ID FROM USUARIO WHERE EMAIL = '{}' AND CONTRASENA = '{}'"
+
     SQL_REGISTRO = "INSERT INTO USUARIO (NOMBRE, APELLIDO, EMAIL, CONTRASENA) VALUES ('{}','{}','{}','{}')"
+
     SQL_OLVIDO   = "UPDATE USUARIO SET CONTRASENA = '{}' WHERE EMAIL = '{}' AND CONTRASENA = '{}'"
     
     conexion = None

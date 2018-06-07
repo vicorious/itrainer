@@ -12,5 +12,5 @@ class DefaultConnection:
         port     = Constante.port_default
         db       = Constante.db_default
         password = Constante.password_default
-        postgre = PostgreConnect(db, port, ip, usuario, password)    
+        postgre  = PostgreConnect(db, port, ip, usuario, password)    
         return postgre.conectar()

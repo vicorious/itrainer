@@ -5,6 +5,7 @@ from facade_agendamiento import AgendamientoFacade
 from facade_trainer      import TrainerFacade
 from facade_examen       import ExamenFacade
 from facade_premios      import PremioFacade
+from facade_calendario   import CalendarioFacade
 import sys
 
 ###### Flask Object ######################################
@@ -234,11 +235,12 @@ def asociar_usuario_premio():
 
 		
 ################# Examen ###########################
-@app.route('/crear_examen', methods=['GET'])
+@app.route('/crear_examen', methods=['POST'])
 def crear_examen():
     try:
-        facade   = ExamenFacade()
-        examen   = facade.crear_examen()
+        _json_crear_examen = request.json
+        facade             = ExamenFacade()
+        examen             = facade.crear_examen(_json_crear_examen)
         if examen:
             return OK
         else:
@@ -304,6 +306,68 @@ def actualizar_trainer():
 
     return None
 
+########### Proveedores ###############
+@app.route('/proveedor_usuario', methods=['POST'])
+def proveedor_usuario():
+    try:
+        _json_proveedor = request.json
+        facade          = PremioFacade()
+        proveedor       = facade.proveedor_usuario_inscripcion(_json_proveedor)
+        if proveedor:
+            return OK
+        else:
+            return FAIL
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))
+
+@app.route('/proveedor_trainer', methods=['POST'])
+def proveedor_trainer():
+    try:
+        _json_proveedor = request.json
+        facade          = PremioFacade()
+        proveedor       = facade.proveedor_trainer_inscripcion(_json_proveedor)
+        if proveedor:
+            return OK
+        else:
+            return FAIL
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))
+
+@app.route('/asociar_premio_usuario', methods=['POST'])
+def asociar_premio_proveedor_usuario():
+    try:
+        _json_proveedor = request.json
+        facade          = PremioFacade()
+        proveedor       = facade.asociar_premio_proveedor_usuario(_json_proveedor)
+        if proveedor:
+            return OK
+        else:
+            return FAIL
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))
+
+
+@app.route('/asociar_premio_trainer', methods=['POST'])
+def asociar_premio_proveedor_trainer():
+    try:
+        _json_proveedor = request.json
+        facade          = PremioFacade()
+        proveedor       = facade.asociar_premio_proveedor_trainer(_json_proveedor)
+        if proveedor:
+            return OK
+        else:
+            return FAIL
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))
+
+@app.route('/calendario_actual', methods=['GET'])
+def calendario_actual():
+    try:        
+        facade          = CalendarioFacade()
+        calendario      = facade.calendario_actual()
+        return calendario
+    except:
+        print('Error no controlado: {}'.format(sys.exc_info()[0]))    
 ####### Main ############
 if __name__ == '__main__':
     app.run()

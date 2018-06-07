@@ -38,7 +38,7 @@ class ExamenFacade:
             pass
 
     ############ crear examen ###############################
-    def crear_examen(self):
+    def crear_examen(self, _json):
         try:        
             #Conexion a postgre            
             cursor    = self.getCursor()
