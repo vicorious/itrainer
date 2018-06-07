@@ -1,6 +1,6 @@
-## Itrainer
+# Itrainer
 
-# Aplicacion encargada de generar agendamiento a *Personal Trainer*
+### Aplicacion encargada de generar agendamiento a *Personal Trainer*
 
 ## Tecnologias:
 
@@ -19,7 +19,7 @@
 
 
 Login: 
-![alt text][logo]
+> ![SPL Pruebas](/raw/images/login.PNG)
 [logo]: https://github.com/vicorious/itrainer/raw/images/login.PNG "Login"
 
 Valoracion 1: 
