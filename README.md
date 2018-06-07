@@ -51,12 +51,21 @@ Tiene 3 componentes principales (Front, Back y DB):
 
 1. Front:
 
-   * Construido con HTML5 - CSS3 - Typescript y Javascript.
+    * Construido con HTML5 - CSS3 - Typescript y Javascript.
 
 2. Back:
 
-   * Todo el back se encuentra construido en Python (3.5.1)
+    * Todo el back se encuentra construido en Python (3.5.1)
 
 3. DB:
 
-   * Elegimos una base de datos Open Source y robusta como lo es PostgreSQL (9.6)
+    * Elegimos una base de datos Open Source y robusta como lo es PostgreSQL (9.6)
+	
+# Instalacion
+
+1. Para poder ejecutar nuestra APP correctamente, Debemos:
+
+   * Instalar NODE [Node](https://nodejs.org/es/)
+   * Agregar a variables de entorno _NG_
+   * Ir a la raiz del proyecto descargado y ejecutar(*npm install*). para poder usar los modulos incluidos en la APP
+   * Si no hay ningun problema, vamos a arrancar la app (*npm start*) _Arranca en *http://localhost:4200*
