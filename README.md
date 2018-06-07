@@ -20,37 +20,29 @@
 
 Login: 
 > ![SPL Pruebas](/raw/images/login.PNG)
-[logo]: https://github.com/vicorious/itrainer/raw/images/login.PNG "Login"
 
 Valoracion 1: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion1.PNG "Valoracion"
+> ![SPL Pruebas](/raw/images/valoracion1.PNG)
 
 Valoracion 2: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion2.PNG "Valoracion"
+> ![SPL Pruebas](/raw/images/valoracion2.PNG)
 
 Valoracion 3: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/images/valoracion3.PNG "Valoracion"
+> ![SPL Pruebas](/raw/images/valoracion3.PNG)
 
 Retroalimentacion: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/images/retroalimentacion.PNG "Valoracion"
+> ![SPL Pruebas](/raw/images/retroalimentacion.PNG)
 
 Animaciones
 ---
 Agendar: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/gifs/agendar.gif "Agendar"
+> ![SPL Pruebas](/raw/gifs/agendar.gif)
 
 Perfil: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/gifs/perfil.gif "Perfil"
+> ![SPL Pruebas](/raw/gifs/perfil.gif)
 
 Flujo agendar: 
-![alt text][logo]
-[logo]: https://github.com/vicorious/itrainer/raw/gifs/flujo-agendar.gif "Agendar"
+> ![SPL Pruebas](/raw/gifs/flujo-agendar.gif)
 
 
 # Arquitectura
