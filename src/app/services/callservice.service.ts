@@ -92,12 +92,30 @@ export class CallserviceService
 	
 	/**
 	*
+	*
+	*
+	**/
+	evaluaciones():Observable<any>
+	{
+		
+		return this._http.post(this.url_valoracion_por_tipo,null).map
+		(
+			res =>
+			{															
+				return res.json();
+			}
+		);							
+	  
+	}//valoraciones	
+	
+	/**
+	*
 	* Retorna todos los trainer
 	*
 	**/
 	trainers():Observable<any>
 	{
-		return this._http.post(this.url_trainers).map
+		return this._http.post(this.url_trainers,null).map
 		(
 			res =>
 			{															

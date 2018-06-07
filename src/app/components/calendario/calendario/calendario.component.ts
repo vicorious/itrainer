@@ -63,6 +63,19 @@ export class CalendarioComponent implements OnInit
   *
   *
   **/
+  agendar()
+  {	  	  
+	  this.ngProgress.start();  
+	  this._enrutamiento.agendar();
+	  this.ngProgress.done();	
+	  
+  }//agendar
+  
+  /**
+  *
+  *
+  *
+  **/
   mostrarModalConfirmacion()
   {
 	  //Modal confirmation
