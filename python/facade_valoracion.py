@@ -10,7 +10,7 @@ class ValoracionFacade:
 
     SQL_VALORACIONES_TIPO    = "SELECT v.nombre, t.nombre, p.nombre, p.id "+" FROM VALORACION v                 INNER JOIN TIPO_VALORACION t "+"  ON v.tipo_valoracion_id = t.id  INNER JOIN PREGUNTA_VAlORACION p"+"  ON t.id = p.tipo_valoracion_id  WHERE TIPO_VALORACION = {}"
 
-    SQL_INSERT_RESPUESTAS     = "INSERT INTO RESPUESTA_VALORACION VALUES "
+    SQL_INSERT_RESPUESTAS     = "INSERT INTO RESPUESTA_VALORACION (PREGUNTA_VALORACION_ID, RESPUESTA) VALUES "
 
     conexion = None
 

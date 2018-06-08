@@ -10,7 +10,7 @@ class ExamenFacade:
 
     SQL_TIPOS_EXAMEN              = "SELECT ID, NOMBRE, PUNTOS_ASIGNAR FROM TIPO_EXAMEN"
 
-    SQL_PREGUNTA_TIPO             = "SELECT t.id, t.nombre, p.id, p.nombre"+"  FROM TIPO_EXAMEN t  INNER JOIN PREGUNTA_EXAMEN_TRAINER p"+"    ON t.id = p.tipo_examen_id"
+    SQL_PREGUNTA_TIPO             = "SELECT t.id, t.nombre, p.id, p.nombre"+"  FROM TIPO_EXAMEN t  INNER JOIN PREGUNTA_EXAMEN_TRAINER p"+"    ON t.id = p.tipo_examen_id WHERE p.tipo_examen_id = {}"
 
     SQL_ASOCIAR_RESPUESTAS        = "INSERT INTO RESPUESTA_EXAMEN_TRAINER (PREGUNTA_EXAMEN_TRAINER_ID, RESPUESTA) VALUES "
 
@@ -91,6 +91,62 @@ class ExamenFacade:
             cursor.close()
             self.cerrarConexion()
         return False
+
+    ########### Asociar respuesta a la pregunta
+    def asociarRespuestaAPregunta(self, _json):
+        try:         
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada = json.loads(_json)
+            json_tupla = tuple(json_entrada)
+            insert = SQL_ASOCIAR_RESPUESTAS.concat("(%(pregunta_examen_trainer)d, %(respuesta)s)")
+            cursor.executemany(insert, json_tupla)
+            return True
+        except:
+            print('Error asociando la respuesta a la pregunta')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+        finally:            
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############## Acutalizar calificacion ###############
+    def actualizar_calificacion(self, _json):
+        try:         
+            #Conexion a postgre            
+            cursor    = self.getCursor()
+            #####
+            json_entrada = json.loads(_json)
+            update = SQL_ACTUALIZAR_CALIFICACION.format(json_entrada["calificacion"], json_entrada["id"])
+            cursor.execute(update)
+            return True
+        except:
+            print('Error actualizando calificacion')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+        finally:            
+            cursor.close()
+            self.cerrarConexion()
+        return False
+
+    ############ Preguntas tipo de examen #############
+    def preguntas_tipo_de_examen(self, _json):
+        try:
+            #Conexion a postgre            
+            cursor        = self.getCursor()
+            #####  
+            json_entrada = json.loads(_json)			
+            cursor.execute(SQL_TIPOS_EXAMEN.format(json_entrada["tipo_examen_id"]))            
+            filas = cursor.fetchall()
+            return filas
+        except:
+            print('Error en preguntas_tipo_de_examen')
+            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+        finally:            
+            cursor.close()
+            self.cerrarConexion()
+        return None		
+
 
     ########## Cerrar conexion ###################
     def cerrarConexion(self):
