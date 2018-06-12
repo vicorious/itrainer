@@ -34,11 +34,11 @@ class PremioFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
-        except:
+        except Exception as e:
             print('Error obteniendo el cursor de facade premios')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             pass
 
@@ -48,12 +48,12 @@ class PremioFacade:
             #Conexion a postgre            
             cursor        = self.getCursor()
             #####            
-            cursor.execute(SQL_PREMIO_TRAINER)            
+            cursor.execute(self.SQL_PREMIO_TRAINER)            
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error en premios trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -65,12 +65,12 @@ class PremioFacade:
             #Conexion a postgre            
             cursor        = self.getCursor()
             #####            
-            cursor.execute(SQL_PREMIO_USUARIO)            
+            cursor.execute(self.SQL_PREMIO_USUARIO)            
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error en premios usuarios')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -84,12 +84,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_TRAINER_PREMIOS.format(json_entrada["trainer_id"], json_entrada["premio_trainer_id"], fecha_actual)
+            insert        = self.SQL_TRAINER_PREMIOS.format(json_entrada["trainer_id"], json_entrada["premio_trainer_id"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar trainer premio')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -103,12 +103,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_USUARIO_PREMIOS.format(json_entrada["trainer_id"], json_entrada["premio_trainer_id"], fecha_actual)
+            insert        = self.SQL_USUARIO_PREMIOS.format(json_entrada["usuario_id"], json_entrada["premio_usuario_id"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar usuario premio')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -122,12 +122,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_PROVEEDOR_USUARIO.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
+            insert        = self.SQL_PROVEEDOR_USUARIO.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar proveedor_usuario_inscripcion')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -141,12 +141,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_PROVEEDOR_TRAINER.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
+            insert        = self.SQL_PROVEEDOR_TRAINER.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar proveedor_trainer_inscripcion')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -160,12 +160,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_PREMIO_USUARIO_PROVEEDOR.format(json_entrada["premio_usuario_id"],json_entrada["proveedor_usuario_id"], fecha_actual)
+            insert        = self.SQL_PREMIO_USUARIO_PROVEEDOR.format(json_entrada["premio_usuario_id"],json_entrada["proveedor_usuario_id"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar_premio_proveedor_usuario')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -179,12 +179,12 @@ class PremioFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_PREMIO_TRAINER_PROVEEDOR.format(json_entrada["premio_trainer_id"],json_entrada["proveedor_trainer_id"], fecha_actual)
+            insert        = self.SQL_PREMIO_TRAINER_PROVEEDOR.format(json_entrada["premio_trainer_id"],json_entrada["proveedor_trainer_id"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error asociar_premio_proveedor_trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))
+            raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()

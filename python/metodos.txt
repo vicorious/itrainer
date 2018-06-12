@@ -1,0 +1,394 @@
+## GET
+/valoracion_default
+/tipos_agendamiento_default
+/premios_trainer
+/premios_usuario
+/tipos_examen
+/trainers
+/cualidades
+/calendario_actual
+
+## POST
+
+***************************************** /login *******************************************************
+
+### PayLoad
+# For windows
+
+* "{\"email\" : \"alejo.lindarte@outlook.com\",\"contrasena\" : \"12345\"}"
+
+# For others
+
+* "{"email" : "alejo.lindarte@outlook.com","contrasena" : "12345"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /registrarse *******************************************************
+
+### PayLoad
+# For windows
+
+* "{\"nombre\" : \"Alejandro\",\"apellido\" : \"lindarte\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345\"}"
+
+# For others
+
+* "{"nombre" : "Alejandro","apellido" : "lindarte", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /registrarse *******************************************************
+
+### PayLoad
+# For windows
+
+* "{\"nombre\" : \"Alejandro\",\"apellido\" : \"lindarte\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345\"}"
+
+# For others
+
+* "{"nombre" : "Alejandro","apellido" : "lindarte", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /olvido_contrasena *******************************************************
+
+### PayLoad
+# For windows
+
+* "{\"nueva_contrasena\" : \"123123new\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345old\"}"
+
+# For others
+
+* "{"nueva_contrasena" : "123123new", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345old"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /valoracion_tipo ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"tipo_valoracion_id\" : \"1\"}"
+
+# For others
+
+* "{"tipo_valoracion_id" : "1"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /asociar_respuesta_valoracion ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "[{\"pregunta_valoracion_id\" : \"1\", \"respuesta\" : \"respuesta 1\"}, {\"pregunta_valoracion_id\" : \"2\", \"respuesta\" : \"respuesta 2\"}, {\"pregunta_valoracion_id\" : \"3\", \"respuesta\" : \"respuesta 3\"}]"
+
+# For others
+
+* "[{"pregunta_valoracion_id" : "1", "respuesta" : "respuesta 1"}, {"pregunta_valoracion_id" : "2", "respuesta" : "respuesta 2"}, {"pregunta_valoracion_id" : "3", "respuesta" : "respuesta 3"}]"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /agendar ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"usuario_id\" : \"1\", \"trainer_id\" : \"1\", \"tipo_agendamiento_id\" : \"1\", \"estado\" : \"A\", \"fecha_agendamiento\" : \"2017-12-15 13:01:23\", \"nombre\" : \"Agenda 1 Jimmy\" , \"descripcion\" : \"Es una descripcion\"}"
+
+# For others
+
+* "{"usuario_id" : "1", "trainer_id" : "1", "tipo_agendamiento_id" : "1", "estado" : "A", "fecha_agendamiento" : "2017-12-15 13:01:23", "nombre" : "Agenda 1 Jimmy" , "descripcion" : "Es una descripcion"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /re_agendar ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\", \"fecha_evento\" : \"2017-12-15 13:01:23\"}"
+
+# For others
+
+* "{"id" : "1", "fecha_evento" : "2017-12-15 13:01:23"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /cancela_agenda ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\"}"
+
+# For others
+
+* "{"id" : "1"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /calificar_agenda_trainer ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\", \"calificacion\" : \"4\"}"
+
+# For others
+
+* "{"id" : "1", "calificacion" : "4"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /calificar_agenda_usuario ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\", \"calificacion\" : \"4\"}"
+
+# For others
+
+* "{"id" : "1", "calificacion" : "4"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+***************************************** /actualizar_costo ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\", \"costo\" : \"20000\"}"
+
+# For others
+
+* "{"id" : "1", "costo" : "20000"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /asociar_trainer_premio ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"trainer_id\" : \"1\", \"premio_trainer_id\" : \"2\"}"
+
+# For others
+
+* "{"trainer_id" : "1", "premio_trainer_id" : "2"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /asociar_usuario_premio ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"usuario_id\" : \"1\", \"premio_usuario_id\" : \"2\"}"
+
+# For others
+
+* "{"usuario_id" : "1", "premio_usuario_id" : "2"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /crear_examen ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"nombre\" : \"Examen\", \"tipo_examen_id\" : \"2\", \"trainer_id\" : \"2\"}"
+
+# For others
+
+* "{"nombre" : "Examen", "tipo_examen_id" : "2", "trainer_id" : "2"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /cualidad_trainer ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "[{\"cualidad_id\" : \"1\", \"trainer_id\" : \"2\"}, {\"cualidad_id\" : \"2\", \"trainer_id\" : \"2\"}, {\"cualidad_id\" : \"6\", \"trainer_id\" : \"2\"}]"
+
+# For others
+
+* "[{"cualidad_id" : "1", "trainer_id" : "2"}, {"cualidad_id" : "2", "trainer_id" : "2"}, {"cualidad_id" : "6", "trainer_id" : "2"}]"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /actualizar_trainer ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"id\" : \"1\", \"campo\" : \"FOTO\"}, {\"foto\" : \"lafoto.png\"}"
+* "{\"id\" : \"1\", \"campo\" : \"FACEBOOK\"}, {\"facebook\" : \"www.facebbok.com/elface\"}"
+* "{\"id\" : \"1\", \"campo\" : \"TWITTER\"}, {\"twitter\" : \"www.twitter.con/eltwitter\"}"
+* "{\"id\" : \"1\", \"campo\" : \"INSTAGRAM\"}, {\"instagram\" : \"www.instagram.com/miinsta\"}"
+* "{\"id\" : \"1\", \"campo\" : \"EMAIL\"}, {\"email\" : \"alejo.lindarte@email.com\"}"
+
+# For others
+
+* "{"id" : "1", "campo" : "FOTO"}, {"foto" : "lafoto.png"}"
+* "{"id" : "1", "campo" : "FACEBOOK"}, {"facebook" : "www.facebbok.com/elface"}"
+* "{"id" : "1", "campo" : "TWITTER"}, {"twitter" : "www.twitter.con/eltwitter"}"
+* "{"id" : "1", "campo" : "INSTAGRAM"}, {"instagram" : "www.instagram.com/miinsta"}"
+* "{"id" : "1", "campo" : "EMAIL"}, {"email" : "alejo.lindarte@email.com"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+
+***************************************** /proveedor_usuario ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"nombre\" : \"Mi casita proveedor\", \"direccion\" : \"kra falsa #12345\"}"
+
+# For others
+
+* "{"nombre" : "Mi casita proveedor", "direccion" : "kra falsa #12345"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /proveedor_trainer ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"nombre\" : \"Mi casita proveedor\", \"direccion\" : \"kra falsa #12345\"}"
+
+# For others
+
+* "{"nombre" : "Mi casita proveedor", "direccion" : "kra falsa #12345"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /asociar_premio_usuario ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"usuario_id\" : \"1\", \"premio_usuario_id\" : \"1\"}"
+
+# For others
+
+* "{"usuario_id" : "1", "premio_usuario_id" : "1"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+***************************************** /asociar_premio_trainer ******************************************************* 
+
+### PayLoad
+# For windows
+
+* "{\"trainer_id\" : \"1\", \"premio_trainer_id\" : \"1\"}"
+
+# For others
+
+* "{"trainer_id" : "1", "premio_trainer_id" : "1"}"
+
+# Headers
+
+* Content-Type = application/json
+
+### /PayLoad
+
+
+
+

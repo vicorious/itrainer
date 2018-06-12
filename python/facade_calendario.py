@@ -20,11 +20,11 @@ class CalendarioFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
-        except:
+        except Exception as e:
             print('Error obteniendo el cursor facade valoracion')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
 
@@ -34,12 +34,12 @@ class CalendarioFacade:
             #Conexion a postgre            
             cursor    = self.getCursor()
             #####
-            cursor.execute(SQL_CALENDARIO_ACTUAL.format('2018'))   
+            cursor.execute(self.SQL_CALENDARIO_ACTUAL.format('2018'))   
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error obteniendo la valoracion default')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()

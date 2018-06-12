@@ -41,11 +41,11 @@ class AgendamientoFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
-        except:
+        except Exception as e:
             print('Error obteniendo el cursor facade agendamiento')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
 
@@ -55,12 +55,12 @@ class AgendamientoFacade:
             #Conexion a postgre            
             cursor    = self.getCursor()
             #####
-            cursor.execute(SQL_TIPO_AGENDAMIENTO_DEFAULT)   
+            cursor.execute(self.SQL_TIPO_AGENDAMIENTO_DEFAULT)   
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error obteniendo tipos de agendamiento')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -74,12 +74,12 @@ class AgendamientoFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert_agenda = SQL_INSERT_AGENDA.format(json_entrada["usuario_id"], json_entrada["trainer_id"], json_entrada["tipo_agendamiento_id"], json_entrada["estado"], json_entrada["fecha_agendamiento"], fecha_actual, json_entrada["nombre"], json_entrada["descripcion"])
+            insert_agenda = self.SQL_INSERT_AGENDA.format(json_entrada["usuario_id"], json_entrada["trainer_id"], json_entrada["tipo_agendamiento_id"], json_entrada["estado"], json_entrada["fecha_agendamiento"], fecha_actual, json_entrada["nombre"], json_entrada["descripcion"])
             cursor.execute(insert_agenda)            
             return True
-        except:
+        except Exception as e:
             print('Error al agendar')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -93,12 +93,12 @@ class AgendamientoFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')			
-            update = SQL_REAGENDAR.format(json_entrada["fecha_evento"], ESTADO_REAGENDADO, fecha_actual, json_entrada["id"])
+            update = self.SQL_REAGENDAR.format(json_entrada["fecha_evento"], ESTADO_REAGENDADO, fecha_actual, json_entrada["id"])
             cursor.execute(update)            
             return True
-        except:
+        except Exception as e:
             print('Error en re_agendar')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -112,12 +112,12 @@ class AgendamientoFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            cancelar      = SQL_CANCELAR_AGENDA.format(ESTADO_CANCELADO, fecha_actual, json_entrada["id"])
+            cancelar      = self.SQL_CANCELAR_AGENDA.format(ESTADO_CANCELADO, fecha_actual, json_entrada["id"])
             cursor.execute(cancelar)            
             return True
-        except:
+        except Exception as e:
             print('Error en cancelar_agenda')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -130,12 +130,12 @@ class AgendamientoFacade:
             cursor            = self.getCursor()
             #####
             json_entrada      = json.loads(_json)            
-            calificacion      = SQL_CALIFICAR_TRAINER.format(json_entrada["calificacion"], ESTADO_FINALIZADO, json_entrada["id"])
+            calificacion      = self.SQL_CALIFICAR_TRAINER.format(json_entrada["calificacion"], ESTADO_FINALIZADO, json_entrada["id"])
             cursor.execute(calificacion)            
             return True
-        except:
+        except Exception as e:
             print('Error en calificar_agenda_trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -148,12 +148,12 @@ class AgendamientoFacade:
             cursor            = self.getCursor()
             #####
             json_entrada      = json.loads(_json)            
-            calificacion      = SQL_CALIFICAR_USUARIO.format(json_entrada["calificacion"], ESTADO_FINALIZADO, json_entrada["id"])
+            calificacion      = self.SQL_CALIFICAR_USUARIO.format(json_entrada["calificacion"], ESTADO_FINALIZADO, json_entrada["id"])
             cursor.execute(calificacion)            
             return True
-        except:
+        except Exception as e:
             print('Error en calificar_agenda_usuario')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -166,12 +166,12 @@ class AgendamientoFacade:
             cursor            = self.getCursor()
             #####
             json_entrada      = json.loads(_json)            
-            actualizar        = SQL_ACTUALIZAR_COSTO.format(json_entrada["costo"], ESTADO_REAGENDADO, json_entrada["id"])
+            actualizar        = self.SQL_ACTUALIZAR_COSTO.format(json_entrada["costo"], ESTADO_REAGENDADO, json_entrada["id"])
             cursor.execute(actualizar)            
             return True
-        except:
+        except Exception as e:
             print('Error en actualizar_costo')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()

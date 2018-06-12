@@ -8,7 +8,7 @@ class TrainerFacade:
 
     SQL_TRAINERS                         = "SELECT ID, NOMBRE, APELLIDO, EMAIL, CONTRASENA, FOTO, DESCRIPCION, TWITTER, FACEBOOK, INSTAGRAM, FECHA_INSCRIPCION"+"  FROM TRAINER"
 
-    SQL_CUALIDADES                       = "SELECT ID, NOMBRE, FECHA_INGRESO FROM CUALIDADES"
+    SQL_CUALIDADES                       = "SELECT ID, NOMBRE, FECHA_INGRESO FROM CUALIDAD"
 
     SQL_ASOCIAR_CUALIDADES               = "INSERT INTO CUALIDADES_TRAINER (CUALIDAD_ID, TRAINER_ID) VALUES "
 	
@@ -35,11 +35,12 @@ class TrainerFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            print('Cursor correcto Trainer!')
             return cursor
-        except:
+        except Exception as e:
             print('Error obteniendo el cursor de facade trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado en el cursor: {}'.format(e.args[0]))
         finally:            
             pass
 	
@@ -49,12 +50,12 @@ class TrainerFacade:
             #Conexion a postgre            
             cursor    = self.getCursor()
             #####
-            cursor.execute(SQL_TRAINERS)   
-            filas = cursor.fetchall()
+            cursor.execute(self.SQL_TRAINERS)
+            filas = cursor.fetchall()            
             return filas
-        except:
-            print('Error obteniendo trainers')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+        except Exception as e:
+            print('Error no controlado trainers: {}'.format(e.args[0]))
+            raise Exception('Error no controlado trainers: {}'.format(e.args[0]))
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -66,12 +67,12 @@ class TrainerFacade:
             #Conexion a postgre            
             cursor        = self.getCursor()
             #####            
-            cursor.execute(SQL_CUALIDADES)            
+            cursor.execute(self.SQL_CUALIDADES)            
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error en cualidades')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -85,12 +86,12 @@ class TrainerFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
+            insert = self.SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
             cursor.executemany(insert, json_tupla)
             return True
-        except:
+        except Exception as e:
             print('Error asociando la cualidad al trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -107,22 +108,22 @@ class TrainerFacade:
             json_entrada  = json.loads(_json)
             campo = json_entrada["campo"].upper()
             if campo == 'FOTO':
-                sentencia = SQL_ACTUALIZAR_TRAINER_FOTO.format(json_entrada["foto"], json_entrada["id"])
+                sentencia = self.SQL_ACTUALIZAR_TRAINER_FOTO.format(json_entrada["foto"], json_entrada["id"])
             elif campo == 'FACEBOOK':
-                sentencia = SQL_ACTUALIZAR_TRAINER_FACEBOOK.format(json_entrada["facebook"], json_entrada["id"])
+                sentencia = self.SQL_ACTUALIZAR_TRAINER_FACEBOOK.format(json_entrada["facebook"], json_entrada["id"])
             elif campo == 'TWITTER':
-                sentencia = SQL_ACTUALIZAR_TRAINER_TWITTER.format(json_entrada["twitter"], json_entrada["id"])
+                sentencia = self.SQL_ACTUALIZAR_TRAINER_TWITTER.format(json_entrada["twitter"], json_entrada["id"])
             elif campo == 'INSTAGRAM':
-                sentencia = SQL_ACTUALIZAR_TRAINER_INSTAGRAM.format(json_entrada["instagram"], json_entrada["id"])
+                sentencia = self.SQL_ACTUALIZAR_TRAINER_INSTAGRAM.format(json_entrada["instagram"], json_entrada["id"])
             elif campo == 'EMAIL':
-                sentencia = SQL_ACTUALIZAR_TRAINER_EMAIL.format(json_entrada["email"], json_entrada["id"])
+                sentencia = self.SQL_ACTUALIZAR_TRAINER_EMAIL.format(json_entrada["email"], json_entrada["id"])
             else:
                 raise Exception('El campo a actualizar no existe. viene de manera vacia o erronea ')            
             cursor.execute(sentencia)            
             return True
-        except:
+        except Exception as e:
             print('Error en actualizar trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()

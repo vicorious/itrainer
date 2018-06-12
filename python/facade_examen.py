@@ -29,11 +29,11 @@ class ExamenFacade:
             #Conexion a postgre
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
-            cursor         = conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
+            cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
-        except:
+        except Exception as e:
             print('Error obteniendo el cursor de facade examen')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
 
@@ -45,12 +45,12 @@ class ExamenFacade:
             #####
             json_entrada  = json.loads(_json)
             fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
-            insert        = SQL_EXAMEN.format(json_entrada["nombre"], json_entrada["tipo_examen_id"], json_entrada["trainer_id"], fecha_actual)
+            insert        = self.SQL_EXAMEN.format(json_entrada["nombre"], json_entrada["tipo_examen_id"], json_entrada["trainer_id"], fecha_actual)
             cursor.execute(insert)
             return True
-        except:
+        except Exception as e:
             print('Error creando el examen')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:
             cursor.close()
             self.cerrarConexion()
@@ -62,12 +62,12 @@ class ExamenFacade:
             #Conexion a postgre            
             cursor        = self.getCursor()
             #####            
-            cursor.execute(SQL_TIPOS_EXAMEN)            
+            cursor.execute(self.SQL_TIPOS_EXAMEN)            
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error en tipos examen')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -81,12 +81,12 @@ class ExamenFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
+            insert = self.SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
             cursor.executemany(insert, json_tupla)
             return True
-        except:
+        except Exception as e:
             print('Error asociando la cualidad al trainer')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -100,12 +100,12 @@ class ExamenFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = SQL_ASOCIAR_RESPUESTAS.concat("(%(pregunta_examen_trainer)d, %(respuesta)s)")
+            insert = self.SQL_ASOCIAR_RESPUESTAS.concat("(%(pregunta_examen_trainer)d, %(respuesta)s)")
             cursor.executemany(insert, json_tupla)
             return True
-        except:
+        except Exception as e:
             print('Error asociando la respuesta a la pregunta')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -118,12 +118,12 @@ class ExamenFacade:
             cursor    = self.getCursor()
             #####
             json_entrada = json.loads(_json)
-            update = SQL_ACTUALIZAR_CALIFICACION.format(json_entrada["calificacion"], json_entrada["id"])
+            update = self.SQL_ACTUALIZAR_CALIFICACION.format(json_entrada["calificacion"], json_entrada["id"])
             cursor.execute(update)
             return True
-        except:
+        except Exception as e:
             print('Error actualizando calificacion')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
@@ -136,12 +136,12 @@ class ExamenFacade:
             cursor        = self.getCursor()
             #####  
             json_entrada = json.loads(_json)			
-            cursor.execute(SQL_TIPOS_EXAMEN.format(json_entrada["tipo_examen_id"]))            
+            cursor.execute(self.SQL_TIPOS_EXAMEN.format(json_entrada["tipo_examen_id"]))            
             filas = cursor.fetchall()
             return filas
-        except:
+        except Exception as e:
             print('Error en preguntas_tipo_de_examen')
-            raise Exception('Error no controlado: {}'.format(sys.exc_info()[0]))			
+            raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
             self.cerrarConexion()
