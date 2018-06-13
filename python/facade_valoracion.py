@@ -2,6 +2,7 @@ from default_connection import DefaultConnection
 import json
 import sys
 import psycopg2.extras
+import logging
 
 class ValoracionFacade:
 
@@ -13,6 +14,8 @@ class ValoracionFacade:
     SQL_INSERT_RESPUESTAS     = "INSERT INTO RESPUESTA_VALORACION (PREGUNTA_VALORACION_ID, RESPUESTA) VALUES "
 
     conexion = None
+
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
 
      ################## Constructor ####################
     def __init__(self):
@@ -27,7 +30,7 @@ class ValoracionFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor facade valoracion')
+            logging.debug('Error obteniendo el cursor facade valoracion')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
@@ -42,7 +45,7 @@ class ValoracionFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error obteniendo la valoracion default')
+            logging.debug('Error obteniendo la valoracion default')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -60,7 +63,7 @@ class ValoracionFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error obteniendo la valoracion por tipo')
+            logging.debug('Error obteniendo la valoracion por tipo')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -79,7 +82,7 @@ class ValoracionFacade:
             cursor.executemany(insert, json_tupla)
             return True
         except Exception as e:
-            print('Error asociando la respuesta a la pregunta')
+            logging.debug('Error asociando la respuesta a la pregunta')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()

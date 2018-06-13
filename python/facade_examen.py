@@ -3,6 +3,7 @@ import json
 import sys
 import psycopg2.extras
 import datetime
+import logging
 
 class ExamenFacade:
 
@@ -18,6 +19,8 @@ class ExamenFacade:
 
     conexion = None
 
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
+
 
     ####### Constructor ############
     def __init__(self):
@@ -32,7 +35,7 @@ class ExamenFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor de facade examen')
+            logging.debug('Error obteniendo el cursor de facade examen')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
@@ -49,7 +52,7 @@ class ExamenFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error creando el examen')
+            logging.debug('Error creando el examen')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:
             cursor.close()
@@ -66,7 +69,7 @@ class ExamenFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error en tipos examen')
+            logging.debug('Error en tipos examen')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -85,7 +88,7 @@ class ExamenFacade:
             cursor.executemany(insert, json_tupla)
             return True
         except Exception as e:
-            print('Error asociando la cualidad al trainer')
+            logging.debug('Error asociando la cualidad al trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -104,7 +107,7 @@ class ExamenFacade:
             cursor.executemany(insert, json_tupla)
             return True
         except Exception as e:
-            print('Error asociando la respuesta a la pregunta')
+            logging.debug('Error asociando la respuesta a la pregunta')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -122,7 +125,7 @@ class ExamenFacade:
             cursor.execute(update)
             return True
         except Exception as e:
-            print('Error actualizando calificacion')
+            logging.debug('Error actualizando calificacion')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -140,7 +143,7 @@ class ExamenFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error en preguntas_tipo_de_examen')
+            logging.debug('Error en preguntas_tipo_de_examen')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()

@@ -3,6 +3,7 @@ import json
 import sys
 import psycopg2.extras
 import datetime
+import logging
 
 class PremioFacade:
 
@@ -24,6 +25,8 @@ class PremioFacade:
 
     conexion = None
 
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
+
     ###### Constructor #######
     def __init__(self):
         pass
@@ -37,7 +40,7 @@ class PremioFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor de facade premios')
+            logging.debug('Error obteniendo el cursor de facade premios')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             pass
@@ -52,7 +55,7 @@ class PremioFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error en premios trainer')
+            logging.debug('Error en premios trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             cursor.close()
@@ -69,7 +72,7 @@ class PremioFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error en premios usuarios')
+            logging.debug('Error en premios usuarios')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:            
             cursor.close()
@@ -88,7 +91,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar trainer premio')
+            logging.debug('Error asociar trainer premio')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -107,7 +110,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar usuario premio')
+            logging.debug('Error asociar usuario premio')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -126,7 +129,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar proveedor_usuario_inscripcion')
+            logging.debug('Error asociar proveedor_usuario_inscripcion')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -145,7 +148,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar proveedor_trainer_inscripcion')
+            logging.debug('Error asociar proveedor_trainer_inscripcion')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -164,7 +167,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar_premio_proveedor_usuario')
+            logging.debug('Error asociar_premio_proveedor_usuario')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -183,7 +186,7 @@ class PremioFacade:
             cursor.execute(insert)
             return True
         except Exception as e:
-            print('Error asociar_premio_proveedor_trainer')
+            logging.debug('Error asociar_premio_proveedor_trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()

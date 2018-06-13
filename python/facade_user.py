@@ -2,6 +2,7 @@ from default_connection import DefaultConnection
 import json
 import sys
 import psycopg2.extras
+import logging
 
 class ClienteFacade:
 
@@ -12,6 +13,8 @@ class ClienteFacade:
     SQL_OLVIDO   = "UPDATE USUARIO SET CONTRASENA = '{}' WHERE EMAIL = '{}' AND CONTRASENA = '{}'"
     
     conexion = None
+
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
 
     ############ Constructor ##############################################
     def __init__(self):
@@ -26,7 +29,7 @@ class ClienteFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor facade user')
+            logging.debug('Error obteniendo el cursor facade user')
             raise Exception('Error no controlado: {}'.format(e.args[0]))		
         finally:            
             pass
@@ -39,12 +42,12 @@ class ClienteFacade:
             #####
             json_entrada = json.loads(_json)
             sql = self.SQL_LOGUEO.format(json_entrada["email"], json_entrada["contrasena"])
-            print(sql)
+            logging.debug(sql)
             cursor.execute(sql)
             registros = cursor.fetchall()
             return len(registros)
         except Exception as e:
-            print('Error en el logueo')
+            logging.debug('Error en el logueo')
             raise Exception('Error no controlado logueo: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -62,7 +65,7 @@ class ClienteFacade:
             cursor.execute(self.SQL_REGISTRO.format(json_entrada["nombre"], json_entrada["apellido"], json_entrada["email"], json_entrada["contrasena"]))
             insert = True
         except Exception as e:
-            print('Error en registrar el usuario')
+            logging.debug('Error en registrar el usuario')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -79,7 +82,7 @@ class ClienteFacade:
             cursor.execute(self.SQL_OLVIDO.format(json_entrada["nueva_contrasena"], json_entrada["email"], json_entrada["contrasena"]))
             return True
         except Exception as e:
-            print('Error en olvido de contrasena del usuario el usuario')
+            logging.debug('Error en olvido de contrasena del usuario el usuario')
             raise Exception('Error no controlado: {}'.format(e.args[0]))
         finally:
             cursor.close()

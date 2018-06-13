@@ -3,6 +3,7 @@ import json
 import sys
 import psycopg2.extras
 import datetime
+import logging
 
 class TrainerFacade:
 
@@ -22,7 +23,9 @@ class TrainerFacade:
 
     SQL_ACTUALIZAR_TRAINER_EMAIL         = "UPDATE TRAINER SET EMAIL = '{}' WHERE ID = {}"
 
-    conexion = None    
+    conexion = None
+
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)	
 
 
     ####### Constructor ############
@@ -36,10 +39,10 @@ class TrainerFacade:
             default        = DefaultConnection()
             self.conexion  = default.postgre_connect()
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
-            print('Cursor correcto Trainer!')
+            logging.debug('Cursor correcto Trainer!')
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor de facade trainer')
+            logging.debug('Error obteniendo el cursor de facade trainer')
             raise Exception('Error no controlado en el cursor: {}'.format(e.args[0]))
         finally:            
             pass
@@ -54,7 +57,7 @@ class TrainerFacade:
             filas = cursor.fetchall()            
             return filas
         except Exception as e:
-            print('Error no controlado trainers: {}'.format(e.args[0]))
+            logging.debug('Error no controlado trainers: {}'.format(e.args[0]))
             raise Exception('Error no controlado trainers: {}'.format(e.args[0]))
         finally:
             cursor.close()
@@ -71,7 +74,7 @@ class TrainerFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error en cualidades')
+            logging.debug('Error en cualidades')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -90,7 +93,7 @@ class TrainerFacade:
             cursor.executemany(insert, json_tupla)
             return True
         except Exception as e:
-            print('Error asociando la cualidad al trainer')
+            logging.debug('Error asociando la cualidad al trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -122,7 +125,7 @@ class TrainerFacade:
             cursor.execute(sentencia)            
             return True
         except Exception as e:
-            print('Error en actualizar trainer')
+            logging.debug('Error en actualizar trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()

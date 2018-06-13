@@ -2,6 +2,7 @@ from default_connection import DefaultConnection
 import json
 import sys
 import psycopg2.extras
+import logging
 
 class CalendarioFacade:
 
@@ -9,6 +10,8 @@ class CalendarioFacade:
     SQL_CALENDARIO_ACTUAL = "SELECT ID, ANO, MES, DIA_INICIO, NUMERO_DIAS FROM CALENDARIO WHERE ANO = '{}'"
 
     conexion = None
+
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
 
      ################## Constructor ####################
     def __init__(self):
@@ -23,7 +26,7 @@ class CalendarioFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor facade valoracion')
+            logging.debug('Error obteniendo el cursor facade valoracion')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
@@ -38,7 +41,7 @@ class CalendarioFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error obteniendo la valoracion default')
+            logging.debug('Error obteniendo la valoracion default')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()

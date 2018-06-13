@@ -3,6 +3,7 @@ import json
 import sys
 import psycopg2.extras
 import datetime
+import logging
 
 class AgendamientoFacade:
 
@@ -29,6 +30,8 @@ class AgendamientoFacade:
     SQL_ACTUALIZAR_COSTO            = "UPDATE AGENDA SET COSTO = {}, ESTADO = '{}' WHERE ID = {}"
 
     conexion = None    
+
+    logging.basicConfig(filename="test.log", level=logging.DEBUG)
 	
 	
     ####### Constructor ############
@@ -44,7 +47,7 @@ class AgendamientoFacade:
             cursor         = self.conexion.cursor(cursor_factory=psycopg2.extras.DictCursor)
             return cursor
         except Exception as e:
-            print('Error obteniendo el cursor facade agendamiento')
+            logging.debug('Error obteniendo el cursor facade agendamiento')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             pass
@@ -59,7 +62,7 @@ class AgendamientoFacade:
             filas = cursor.fetchall()
             return filas
         except Exception as e:
-            print('Error obteniendo tipos de agendamiento')
+            logging.debug('Error obteniendo tipos de agendamiento')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:
             cursor.close()
@@ -78,7 +81,7 @@ class AgendamientoFacade:
             cursor.execute(insert_agenda)            
             return True
         except Exception as e:
-            print('Error al agendar')
+            logging.debug('Error al agendar')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -97,7 +100,7 @@ class AgendamientoFacade:
             cursor.execute(update)            
             return True
         except Exception as e:
-            print('Error en re_agendar')
+            logging.debug('Error en re_agendar')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -116,7 +119,7 @@ class AgendamientoFacade:
             cursor.execute(cancelar)            
             return True
         except Exception as e:
-            print('Error en cancelar_agenda')
+            logging.debug('Error en cancelar_agenda')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -134,7 +137,7 @@ class AgendamientoFacade:
             cursor.execute(calificacion)            
             return True
         except Exception as e:
-            print('Error en calificar_agenda_trainer')
+            logging.debug('Error en calificar_agenda_trainer')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -152,7 +155,7 @@ class AgendamientoFacade:
             cursor.execute(calificacion)            
             return True
         except Exception as e:
-            print('Error en calificar_agenda_usuario')
+            logging.debug('Error en calificar_agenda_usuario')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
@@ -170,7 +173,7 @@ class AgendamientoFacade:
             cursor.execute(actualizar)            
             return True
         except Exception as e:
-            print('Error en actualizar_costo')
+            logging.debug('Error en actualizar_costo')
             raise Exception('Error no controlado: {}'.format(e.args[0]))			
         finally:            
             cursor.close()
