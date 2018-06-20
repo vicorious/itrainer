@@ -83,7 +83,7 @@ Tiene 3 componentes principales (Front, Back y DB):
    
 
 # Insomnia Test
-
+* Para instalar las pruebas unitarias a los servicios python (Despues de realizar los pasos anteriores), completa las siguientes instrucciones:
 1. > ![Primer paso](/raw/images/insomnia_1.PNG)
 2. > ![Primer paso](/raw/images/insomnia_2.PNG)
 3. > ![Primer paso](/raw/images/insomnia_3.PNG)
