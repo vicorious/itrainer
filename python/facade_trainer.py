@@ -89,8 +89,11 @@ class TrainerFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = self.SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
+            print('Tuplas: ')
+            print(json_tupla)
+            insert = self.SQL_ASOCIAR_CUALIDADES + "(%(cualidad_id)s, %(trainer_id)s)"
             cursor.executemany(insert, json_tupla)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociando la cualidad al trainer')
@@ -110,6 +113,8 @@ class TrainerFacade:
             #####            
             json_entrada  = json.loads(_json)
             campo = json_entrada["campo"].upper()
+            print('Campo')
+            print(campo)
             if campo == 'FOTO':
                 sentencia = self.SQL_ACTUALIZAR_TRAINER_FOTO.format(json_entrada["foto"], json_entrada["id"])
             elif campo == 'FACEBOOK':
@@ -121,8 +126,11 @@ class TrainerFacade:
             elif campo == 'EMAIL':
                 sentencia = self.SQL_ACTUALIZAR_TRAINER_EMAIL.format(json_entrada["email"], json_entrada["id"])
             else:
-                raise Exception('El campo a actualizar no existe. viene de manera vacia o erronea ')            
-            cursor.execute(sentencia)            
+                raise Exception('El campo a actualizar no existe. viene de manera vacia o erronea ') 
+            print('Sentencia')
+            print(sentencia)			
+            cursor.execute(sentencia)
+            self.conexion.commit()            
             return True
         except Exception as e:
             logging.debug('Error en actualizar trainer')

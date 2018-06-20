@@ -8,7 +8,7 @@ class ClienteFacade:
 
     SQL_LOGUEO   = "SELECT ID FROM USUARIO WHERE EMAIL = '{}' AND CONTRASENA = '{}'"
 
-    SQL_REGISTRO = "INSERT INTO USUARIO (NOMBRE, APELLIDO, EMAIL, CONTRASENA) VALUES ('{}','{}','{}','{}')"
+    SQL_REGISTRO = "INSERT INTO USUARIO (NOMBRE, APELLIDO, EMAIL, CONTRASENA, FOTO) VALUES ('{}','{}','{}','{}', '{}')"
 
     SQL_OLVIDO   = "UPDATE USUARIO SET CONTRASENA = '{}' WHERE EMAIL = '{}' AND CONTRASENA = '{}'"
     
@@ -62,7 +62,8 @@ class ClienteFacade:
             cursor    = self.getCursor()
             #####
             json_entrada = json.loads(_json)
-            cursor.execute(self.SQL_REGISTRO.format(json_entrada["nombre"], json_entrada["apellido"], json_entrada["email"], json_entrada["contrasena"]))
+            cursor.execute(self.SQL_REGISTRO.format(json_entrada["nombre"], json_entrada["apellido"], json_entrada["email"], json_entrada["contrasena"], json_entrada["foto"]))
+            self.conexion.commit()
             insert = True
         except Exception as e:
             logging.debug('Error en registrar el usuario')
@@ -80,6 +81,7 @@ class ClienteFacade:
             #####
             json_entrada = json.loads(_json)
             cursor.execute(self.SQL_OLVIDO.format(json_entrada["nueva_contrasena"], json_entrada["email"], json_entrada["contrasena"]))
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error en olvido de contrasena del usuario el usuario')

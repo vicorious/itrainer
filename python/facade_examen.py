@@ -4,6 +4,7 @@ import sys
 import psycopg2.extras
 import datetime
 import logging
+import time
 
 class ExamenFacade:
 
@@ -47,9 +48,10 @@ class ExamenFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_EXAMEN.format(json_entrada["nombre"], json_entrada["tipo_examen_id"], json_entrada["trainer_id"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error creando el examen')
@@ -84,8 +86,9 @@ class ExamenFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = self.SQL_ASOCIAR_CUALIDADES.concat("(%(cualidad_id)d, %(trainer_id)d)")
+            insert = self.SQL_ASOCIAR_CUALIDADES + "(%(cualidad_id)d, %(trainer_id)d)"
             cursor.executemany(insert, json_tupla)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociando la cualidad al trainer')
@@ -103,8 +106,9 @@ class ExamenFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = self.SQL_ASOCIAR_RESPUESTAS.concat("(%(pregunta_examen_trainer)d, %(respuesta)s)")
+            insert = self.SQL_ASOCIAR_RESPUESTAS + "(%(pregunta_examen_trainer)d, %(respuesta)s)"
             cursor.executemany(insert, json_tupla)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociando la respuesta a la pregunta')
@@ -123,6 +127,7 @@ class ExamenFacade:
             json_entrada = json.loads(_json)
             update = self.SQL_ACTUALIZAR_CALIFICACION.format(json_entrada["calificacion"], json_entrada["id"])
             cursor.execute(update)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error actualizando calificacion')

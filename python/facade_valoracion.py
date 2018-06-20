@@ -78,8 +78,11 @@ class ValoracionFacade:
             #####
             json_entrada = json.loads(_json)
             json_tupla = tuple(json_entrada)
-            insert = self.SQL_INSERT_RESPUESTAS.concat("(%(pregunta_valoracion_id)d, %(respuesta)s)")
+            print('Tupla: ')
+            print(json_tupla)
+            insert = self.SQL_INSERT_RESPUESTAS + "(%(pregunta_valoracion_id)d, %(respuesta)s)"
             cursor.executemany(insert, json_tupla)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociando la respuesta a la pregunta')

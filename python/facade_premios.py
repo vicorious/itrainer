@@ -4,6 +4,7 @@ import sys
 import psycopg2.extras
 import datetime
 import logging
+import time
 
 class PremioFacade:
 
@@ -86,9 +87,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_TRAINER_PREMIOS.format(json_entrada["trainer_id"], json_entrada["premio_trainer_id"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar trainer premio')
@@ -105,9 +107,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_USUARIO_PREMIOS.format(json_entrada["usuario_id"], json_entrada["premio_usuario_id"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar usuario premio')
@@ -124,9 +127,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_PROVEEDOR_USUARIO.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar proveedor_usuario_inscripcion')
@@ -143,9 +147,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_PROVEEDOR_TRAINER.format(json_entrada["nombre"], json_entrada["direccion"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar proveedor_trainer_inscripcion')
@@ -162,9 +167,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_PREMIO_USUARIO_PROVEEDOR.format(json_entrada["premio_usuario_id"],json_entrada["proveedor_usuario_id"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar_premio_proveedor_usuario')
@@ -181,9 +187,10 @@ class PremioFacade:
             cursor    = self.getCursor()
             #####
             json_entrada  = json.loads(_json)
-            fecha_actual  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+            fecha_actual  = datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S')
             insert        = self.SQL_PREMIO_TRAINER_PROVEEDOR.format(json_entrada["premio_trainer_id"],json_entrada["proveedor_trainer_id"], fecha_actual)
             cursor.execute(insert)
+            self.conexion.commit()
             return True
         except Exception as e:
             logging.debug('Error asociar_premio_proveedor_trainer')

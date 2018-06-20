@@ -8,6 +8,32 @@
 /cualidades
 /calendario_actual
 
+	url_valoracion_por_tipo    		: string;
+	url_trainers			   		: string;
+	url_login				   		: string;
+	url_registrarse            		: string;
+	url_olvido_contrasena	   		: string;
+	url_valoracion_default     		: string;
+	url_valoracion_tipo        		: string;
+	url_asociar_respuesta_pregunta  : string;
+	url_tipos_agendamiento			: string;
+	url_agendar						: string;
+	url_re_agendar					: string;
+	url_cancelar_agenda				: string;
+	url_calificar_agenda_trainer    : string;
+	url_calificar_agenda_usuario	: string;
+	url_actualizar_costo			: string;
+	url_premios_trainer				: string;
+	url_premios_usuario				: string;
+	url_asociar_trainer_premio      : string;
+	url_asociar_usuario_premio		: string;
+	url_crear_examen				: string;
+	url_tipos_examen				: string;
+	url_cualidad_trainer			: string;
+	url_cualidades					: string;
+	url_actualiza_trainer			: string;
+	url_calendario					: string;
+
 ## POST
 
 ***************************************** /login *******************************************************
@@ -32,11 +58,11 @@
 ### PayLoad
 # For windows
 
-* "{\"nombre\" : \"Alejandro\",\"apellido\" : \"lindarte\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345\"}"
+* "{\"nombre\" : \"Alejandro\",\"apellido\" : \"lindarte\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345\", \"foto\" : \"lafoto\"}"
 
 # For others
 
-* "{"nombre" : "Alejandro","apellido" : "lindarte", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345"}"
+* "{"nombre" : "Alejandro","apellido" : "lindarte", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345"}, "foto" : "lafoto"}"
 
 # Headers
 
@@ -44,22 +70,6 @@
 
 ### /PayLoad
 
-***************************************** /registrarse *******************************************************
-
-### PayLoad
-# For windows
-
-* "{\"nombre\" : \"Alejandro\",\"apellido\" : \"lindarte\", \"email\" : \"alejo.lindarte@outlook.com\", \"contrasena\" : \"12345\"}"
-
-# For others
-
-* "{"nombre" : "Alejandro","apellido" : "lindarte", "email" : "alejo.lindarte@outlook.com", "contrasena" : "12345"}"
-
-# Headers
-
-* Content-Type = application/json
-
-### /PayLoad
 
 ***************************************** /olvido_contrasena *******************************************************
 
@@ -83,11 +93,11 @@
 ### PayLoad
 # For windows
 
-* "{\"tipo_valoracion_id\" : \"1\"}"
+* "{\"tipo_valoracion_id\" : 1}"
 
 # For others
 
-* "{"tipo_valoracion_id" : "1"}"
+* "{"tipo_valoracion_id" : 1}"
 
 # Headers
 
@@ -100,11 +110,11 @@
 ### PayLoad
 # For windows
 
-* "[{\"pregunta_valoracion_id\" : \"1\", \"respuesta\" : \"respuesta 1\"}, {\"pregunta_valoracion_id\" : \"2\", \"respuesta\" : \"respuesta 2\"}, {\"pregunta_valoracion_id\" : \"3\", \"respuesta\" : \"respuesta 3\"}]"
+* "[{\"pregunta_valoracion_id\" : 1, \"respuesta\" : \"respuesta 1\"}, {\"pregunta_valoracion_id\" : 2, \"respuesta\" : \"respuesta 2\"}, {\"pregunta_valoracion_id\" : 3, \"respuesta\" : \"respuesta 3\"}]"
 
 # For others
 
-* "[{"pregunta_valoracion_id" : "1", "respuesta" : "respuesta 1"}, {"pregunta_valoracion_id" : "2", "respuesta" : "respuesta 2"}, {"pregunta_valoracion_id" : "3", "respuesta" : "respuesta 3"}]"
+* "[{"pregunta_valoracion_id" : 1, "respuesta" : "respuesta 1"}, {"pregunta_valoracion_id" : 2, "respuesta" : "respuesta 2"}, {"pregunta_valoracion_id" : 3, "respuesta" : "respuesta 3"}]"
 
 # Headers
 
@@ -118,11 +128,11 @@
 ### PayLoad
 # For windows
 
-* "{\"usuario_id\" : \"1\", \"trainer_id\" : \"1\", \"tipo_agendamiento_id\" : \"1\", \"estado\" : \"A\", \"fecha_agendamiento\" : \"2017-12-15 13:01:23\", \"nombre\" : \"Agenda 1 Jimmy\" , \"descripcion\" : \"Es una descripcion\"}"
+* "{\"usuario_id\" : 1, \"trainer_id\" : 1, \"tipo_agendamiento_id\" : 1, \"estado\" : \"A\", \"fecha_agendamiento\" : \"2017-12-15 13:01:23\", \"nombre\" : \"Agenda 1 Jimmy\" , \"descripcion\" : \"Es una descripcion\", \"costo\" : \"200000\"}"
 
 # For others
 
-* "{"usuario_id" : "1", "trainer_id" : "1", "tipo_agendamiento_id" : "1", "estado" : "A", "fecha_agendamiento" : "2017-12-15 13:01:23", "nombre" : "Agenda 1 Jimmy" , "descripcion" : "Es una descripcion"}"
+* "{"usuario_id" : 1, "trainer_id" : 1, "tipo_agendamiento_id" : 1, "estado" : "A", "fecha_agendamiento" : "2017-12-15 13:01:23", "nombre" : "Agenda 1 Jimmy" , "descripcion" : "Es una descripcion" , "costo" : "200000"}"
 
 # Headers
 
@@ -135,11 +145,11 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\", \"fecha_evento\" : \"2017-12-15 13:01:23\"}"
+* "{\"id\" : 1, \"fecha_evento\" : \"2017-12-15 13:01:23\"}"
 
 # For others
 
-* "{"id" : "1", "fecha_evento" : "2017-12-15 13:01:23"}"
+* "{"id" : 1, "fecha_evento" : "2017-12-15 13:01:23"}"
 
 # Headers
 
@@ -153,11 +163,11 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\"}"
+* "{\"id\" : 1}"
 
 # For others
 
-* "{"id" : "1"}"
+* "{"id" : 1}"
 
 # Headers
 
@@ -171,11 +181,11 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\", \"calificacion\" : \"4\"}"
+* "{\"id\" : 1, \"calificacion\" : 4}"
 
 # For others
 
-* "{"id" : "1", "calificacion" : "4"}"
+* "{"id" : 1, "calificacion" : 4}"
 
 # Headers
 
@@ -189,11 +199,11 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\", \"calificacion\" : \"4\"}"
+* "{\"id\" : 1, \"calificacion\" : 4}"
 
 # For others
 
-* "{"id" : "1", "calificacion" : "4"}"
+* "{"id" : 1, "calificacion" : 4}"
 
 # Headers
 
@@ -206,11 +216,11 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\", \"costo\" : \"20000\"}"
+* "{\"id\" : 1, \"costo\" : \"20000\"}"
 
 # For others
 
-* "{"id" : "1", "costo" : "20000"}"
+* "{"id" : 1, "costo" : "20000"}"
 
 # Headers
 
@@ -224,11 +234,11 @@
 ### PayLoad
 # For windows
 
-* "{\"trainer_id\" : \"1\", \"premio_trainer_id\" : \"2\"}"
+* "{\"trainer_id\" : 1, \"premio_trainer_id\" : 2}"
 
 # For others
 
-* "{"trainer_id" : "1", "premio_trainer_id" : "2"}"
+* "{"trainer_id" : 1, "premio_trainer_id" : 2}"
 
 # Headers
 
@@ -242,11 +252,11 @@
 ### PayLoad
 # For windows
 
-* "{\"usuario_id\" : \"1\", \"premio_usuario_id\" : \"2\"}"
+* "{\"usuario_id\" : 1, \"premio_usuario_id\" : 2}"
 
 # For others
 
-* "{"usuario_id" : "1", "premio_usuario_id" : "2"}"
+* "{"usuario_id" : 1, "premio_usuario_id" : 2}"
 
 # Headers
 
@@ -260,11 +270,11 @@
 ### PayLoad
 # For windows
 
-* "{\"nombre\" : \"Examen\", \"tipo_examen_id\" : \"2\", \"trainer_id\" : \"2\"}"
+* "{\"nombre\" : \"Examen\", \"tipo_examen_id\" : 2, \"trainer_id\" : 2}"
 
 # For others
 
-* "{"nombre" : "Examen", "tipo_examen_id" : "2", "trainer_id" : "2"}"
+* "{"nombre" : "Examen", "tipo_examen_id" : 2, "trainer_id" : 2}"
 
 # Headers
 
@@ -278,11 +288,11 @@
 ### PayLoad
 # For windows
 
-* "[{\"cualidad_id\" : \"1\", \"trainer_id\" : \"2\"}, {\"cualidad_id\" : \"2\", \"trainer_id\" : \"2\"}, {\"cualidad_id\" : \"6\", \"trainer_id\" : \"2\"}]"
+* "[{\"cualidad_id\" : 1, \"trainer_id\" : 2}, {\"cualidad_id\" : 2, \"trainer_id\" : 2}, {\"cualidad_id\" : 6, \"trainer_id\" : 2}]"
 
 # For others
 
-* "[{"cualidad_id" : "1", "trainer_id" : "2"}, {"cualidad_id" : "2", "trainer_id" : "2"}, {"cualidad_id" : "6", "trainer_id" : "2"}]"
+* "[{"cualidad_id" : 1, "trainer_id" : 2}, {"cualidad_id" : 2, "trainer_id" : 2}, {"cualidad_id" : 6, "trainer_id" : 2}]"
 
 # Headers
 
@@ -296,19 +306,19 @@
 ### PayLoad
 # For windows
 
-* "{\"id\" : \"1\", \"campo\" : \"FOTO\"}, {\"foto\" : \"lafoto.png\"}"
-* "{\"id\" : \"1\", \"campo\" : \"FACEBOOK\"}, {\"facebook\" : \"www.facebbok.com/elface\"}"
-* "{\"id\" : \"1\", \"campo\" : \"TWITTER\"}, {\"twitter\" : \"www.twitter.con/eltwitter\"}"
-* "{\"id\" : \"1\", \"campo\" : \"INSTAGRAM\"}, {\"instagram\" : \"www.instagram.com/miinsta\"}"
-* "{\"id\" : \"1\", \"campo\" : \"EMAIL\"}, {\"email\" : \"alejo.lindarte@email.com\"}"
+* "{\"id\" : 1, \"campo\" : \"FOTO\", \"foto\" : \"lafoto.png\"}"
+* "{\"id\" : 1, \"campo\" : \"FACEBOOK\",\"facebook\" : \"www.facebbok.com/elface\"}"
+* "{\"id\" : 1, \"campo\" : \"TWITTER\", \"twitter\" : \"www.twitter.con/eltwitter\"}"
+* "{\"id\" : 1, \"campo\" : \"INSTAGRAM\", \"instagram\" : \"www.instagram.com/miinsta\"}"
+* "{\"id\" : 1, \"campo\" : \"EMAIL\", \"email\" : \"alejo.lindarte@email.com\"}"
 
 # For others
 
-* "{"id" : "1", "campo" : "FOTO"}, {"foto" : "lafoto.png"}"
-* "{"id" : "1", "campo" : "FACEBOOK"}, {"facebook" : "www.facebbok.com/elface"}"
-* "{"id" : "1", "campo" : "TWITTER"}, {"twitter" : "www.twitter.con/eltwitter"}"
-* "{"id" : "1", "campo" : "INSTAGRAM"}, {"instagram" : "www.instagram.com/miinsta"}"
-* "{"id" : "1", "campo" : "EMAIL"}, {"email" : "alejo.lindarte@email.com"}"
+* "{"id" : 1, "campo" : "FOTO" , "foto" : "lafoto.png"}"
+* "{"id" : 1, "campo" : "FACEBOOK", "facebook" : "www.facebbok.com/elface"}"
+* "{"id" : 1, "campo" : "TWITTER", "twitter" : "www.twitter.con/eltwitter"}"
+* "{"id" : 1, "campo" : "INSTAGRAM", "instagram" : "www.instagram.com/miinsta"}"
+* "{"id" : 1, "campo" : "EMAIL", "email" : "alejo.lindarte@email.com"}"
 
 # Headers
 
@@ -359,11 +369,11 @@
 ### PayLoad
 # For windows
 
-* "{\"usuario_id\" : \"1\", \"premio_usuario_id\" : \"1\"}"
+* "{\"proveedor_usuario_id\" : 1, \"premio_usuario_id\" : 1}"
 
 # For others
 
-* "{"usuario_id" : "1", "premio_usuario_id" : "1"}"
+* "{"proveedor_usuario_id" : 1, "premio_usuario_id" : 1}"
 
 # Headers
 
@@ -377,11 +387,11 @@
 ### PayLoad
 # For windows
 
-* "{\"trainer_id\" : \"1\", \"premio_trainer_id\" : \"1\"}"
+* "{\"trainer_id\" : 1, \"premio_trainer_id\" : 1}"
 
 # For others
 
-* "{"trainer_id" : "1", "premio_trainer_id" : "1"}"
+* "{"trainer_id" : 1, "premio_trainer_id" : 1}"
 
 # Headers
 
