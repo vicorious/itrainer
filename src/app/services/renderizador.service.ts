@@ -844,6 +844,122 @@ export class RenderizadorService
 		
 	}//perfil_examenes_valoraciones
 	
+	/**
+	*
+	* Calendario
+	*
+	**/
+	calendario(_json)
+	{
+		var div_parent      = document.getElementById("tab4");
+		var h1_calendario   = document.createElement("h1");
+		
+		/**
+		*
+		* Asignaciones
+		*
+		**/
+		h1_calendario.innerHTML = this.CALENDARIO;
+		div_parent.appendChild(h1_calendario);
+		
+		//Month
+		var div_month		= document.createElement("div");
+		var ul_month		= document.createElement("ul");
+		var li_month		= document.createElement("li");
+		var br_month        = document.createElement("br");
+		var span_month		= document.createElement("span");
+		/**
+		*
+		* Asignaciones
+		*
+		**/
+		
+		div_month.className  = "month";
+		span_month.setAttribute("style","font-size:18px");
+		span_month.innerHTML = _json.ano;
+		
+		var month = document.createTextNode(_json.mes);
+		
+		li_month.appendChild(month);
+		li_month.appendChild(span_month);
+		
+		ul_month.appendChild(li_month);
+		
+		div_month.appendChild(ul_month);
+		
+		//Weekdays
+		var ul_weekdays		= document.createElement("ul");
+		var li_monday		= document.createElement("li");
+		var li_tuesday		= document.createElement("li");
+		var li_wednesday	= document.createElement("li");
+		var li_thursday		= document.createElement("li");
+		var li_friday		= document.createElement("li");
+		var li_saturday		= document.createElement("li");
+		var li_sunday		= document.createElement("li");
+		
+		/**
+		*
+		* Asignaciones
+		*
+		**/
+		
+		ul_weekdays.className   = "weekdays";
+		
+		li_monday.innerHTML 	= "Lun";
+		li_tuesday.innerHTML 	= "Mar";
+		li_wednesday.innerHTML 	= "Mie";
+		li_thursday.innerHTML 	= "Jue";
+		li_friday.innerHTML 	= "Vie";
+		li_saturday.innerHTML 	= "Sab";
+		li_sunday.innerHTML 	= "Dom";
+		
+		ul_weekdays.appendChild(li_monday);
+		ul_weekdays.appendChild(li_tuesday);
+		ul_weekdays.appendChild(li_wednesday);
+		ul_weekdays.appendChild(li_thursday);
+		ul_weekdays.appendChild(li_friday);
+		ul_weekdays.appendChild(li_saturday);
+		ul_weekdays.appendChild(li_sunday);
+		
+		// Days
+		var ul_days			= document.createElement("ul");
+		ul_days.className	= "days";
+		var numero_maximo   = _json.numero_maximo;
+		var dia_inicio		= _json.dia_inicio;
+		var date 			= new Date();
+		var day 			= date.getDate()
+		
+		
+		for(var i = 1; i < numero_maximo; i++)
+		{
+			var li_done = document.createElement("li");
+			if(i >= dia_inicio)
+			{				
+				li_done.className = "myBtn";				
+			}
+			// es hoy
+			if(i == day)
+			{
+				var span_active = document.createElement("span");
+				span_active.className = "active";
+				span_active.innerHTML = i.toString();
+				li_done.appendChild(span_active);
+			}
+			else //No es hoy
+			{
+				li_done.innerHTML = i.toString();
+			}
+			
+			ul_days.appendChild(li_done);
+			
+		}//for
+		
+		//Asiganciones Parent
+		div_parent.appendChild(div_month);
+		div_parent.appendChild(ul_weekdays);
+		div_parent.appendChild(ul_days);
+	}
+	
 	
 	
 }//NoBorrar
