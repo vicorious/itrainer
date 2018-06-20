@@ -63,12 +63,23 @@ Tiene 3 componentes principales (Front, Back y DB):
 	
 # Instalacion
 
-1. Para poder ejecutar nuestra APP correctamente, Debemos:
+1. Para poder ejecutar nuestra APP correctamente (La parte Front), Debemos:
 
    * Instalar NODE [Node](https://nodejs.org/es/)
    * Agregar a variables de entorno _NG_
    * Ir a la raiz del proyecto descargado y ejecutar(*npm install*). para poder usar los modulos incluidos en la APP
    * Si no hay ningun problema, vamos a arrancar la app (*npm start*) Arranca en *http://localhost:4200*
+
+2. Para instalar la parte de los servicio (Python), Debemos:
+
+   * Descargar la carpeta con nombre _Python_
+   * Entrar a la carpeta (_Python_) y buscar la subcarpeta _env_/_Scripts_/_activate.bat_ (Ejecutar el activate.bat)
+   * Luego volvemos a la carpeta _Python_ y ejecutamos el comando 
+   ```python
+   pip install -r requirements.txt
+   ```
+   * Cuando termine de instalar las librerias, vamos al archivo _servicio.py_ de la carpeta _Python_
+   * Escucha por el puerto _5000_ y la URL es _localhost_ (http://localhost:5000)
    
 
 # Insomnia Test
