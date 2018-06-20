@@ -69,3 +69,11 @@ Tiene 3 componentes principales (Front, Back y DB):
    * Agregar a variables de entorno _NG_
    * Ir a la raiz del proyecto descargado y ejecutar(*npm install*). para poder usar los modulos incluidos en la APP
    * Si no hay ningun problema, vamos a arrancar la app (*npm start*) Arranca en *http://localhost:4200*
+   
+
+# Insomnia Test
+
+1. > ![Primer paso](/raw/images/insomnia_1.PNG)
+2. > ![Primer paso](/raw/images/insomnia_2.PNG)
+3. > ![Primer paso](/raw/images/insomnia_3.PNG)
+4. > ![Primer paso](/raw/images/insomnia_4.PNG)
