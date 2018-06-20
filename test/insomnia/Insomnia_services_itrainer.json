@@ -1,0 +1,772 @@
+{
+	"_type": "export",
+	"__export_format": 3,
+	"__export_date": "2018-06-20T16:03:52.559Z",
+	"__export_source": "insomnia.desktop.app:v5.16.6",
+	"resources": [
+		{
+			"_id": "wrk_ec6e9ab5849446d6966232bdf06cd8cb",
+			"created": 1528822154813,
+			"description": "",
+			"modified": 1528822154813,
+			"name": "Insomnia",
+			"parentId": null,
+			"_type": "workspace"
+		},
+		{
+			"_id": "env_8078ca6b825a455886e2ab39212c4f6b",
+			"color": null,
+			"created": 1528822154854,
+			"data": {},
+			"isPrivate": false,
+			"modified": 1528822154854,
+			"name": "New Environment",
+			"parentId": "wrk_ec6e9ab5849446d6966232bdf06cd8cb",
+			"_type": "environment"
+		},
+		{
+			"_id": "jar_9e05a948c7d44ccc8570be936ed6d8f3",
+			"cookies": [],
+			"created": 1528822155018,
+			"modified": 1528822155018,
+			"name": "Default Jar",
+			"parentId": "wrk_ec6e9ab5849446d6966232bdf06cd8cb",
+			"_type": "cookie_jar"
+		},
+		{
+			"_id": "fld_8fcffb2ed5b64fee8792a25bc39960a9",
+			"created": 1528822173783,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1528822173783,
+			"modified": 1528822173783,
+			"name": "iTrainer",
+			"parentId": "wrk_ec6e9ab5849446d6966232bdf06cd8cb",
+			"_type": "request_group"
+		},
+		{
+			"_id": "fld_01380115841e45a98fb51fbadb27258b",
+			"created": 1529334958944,
+			"description": "",
+			"environment": {},
+			"metaSortKey": -1529334958944,
+			"modified": 1529334958944,
+			"name": "POST",
+			"parentId": "fld_8fcffb2ed5b64fee8792a25bc39960a9",
+			"_type": "request_group"
+		},
+		{
+			"_id": "req_ab63c8b191ae47c1a60611388a40853d",
+			"authentication": {},
+			"body": {
+				"mimeType": "",
+				"text": "\"{\\\"email\\\" : \\\"alejo.lindarte@outlook.com\\\",\\\"contrasena\\\" : \\\"12345\\\"}\"\n"
+			},
+			"created": 1528822190784,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_c22b8a4d1cd343268974d89d12bba9c9",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529334958894,
+			"method": "POST",
+			"modified": 1529334978756,
+			"name": "Login",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/login",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5f12546d54bc4cff974143d4fbabf235",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"nombre\\\" : \\\"Nayla\\\",\\\"apellido\\\" : \\\"Urrego\\\", \\\"email\\\" : \\\"nayla.urrego@outlook.com\\\", \\\"contrasena\\\" : \\\"12345\\\", \\\"foto\\\" : \\\"lafoto\\\"}\""
+			},
+			"created": 1529334993719,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_34544f24dd224f9cb7098b7e468f04b4",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529334993719,
+			"method": "POST",
+			"modified": 1529338821660,
+			"name": "Registrarse",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/registrarse",
+			"_type": "request"
+		},
+		{
+			"_id": "req_02db878a8cd84b74868bf1e2eb50cd15",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"nueva_contrasena\\\" : \\\"123123new\\\", \\\"email\\\" : \\\"alejo.lindarte@outlook.com\\\", \\\"contrasena\\\" : \\\"12345\\\"}\""
+			},
+			"created": 1529338739861,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_e5fa06db18e3409b9249bcfdd2bc01b7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529338739861,
+			"method": "POST",
+			"modified": 1529338784633,
+			"name": "Olvido contraseña",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/olvido_contrasena",
+			"_type": "request"
+		},
+		{
+			"_id": "req_14675fa35eac4d37be3ee0524906f391",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"tipo_valoracion_id\\\" : 2}\""
+			},
+			"created": 1529338858334,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b6914d8cf6fa4ed29cc4762c3d057591",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529338858334,
+			"method": "POST",
+			"modified": 1529340390544,
+			"name": "Valoracion_x_tipo",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/valoracion_tipo",
+			"_type": "request"
+		},
+		{
+			"_id": "req_cde92142daaf4603b15853919ae68932",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"[{\\\"pregunta_valoracion_id\\\" : 1, \\\"respuesta\\\" : \\\"respuesta 1\\\"}, {\\\"pregunta_valoracion_id\\\" : 2, \\\"respuesta\\\" : \\\"respuesta 2\\\"}, {\\\"pregunta_valoracion_id\\\" : 3, \\\"respuesta\\\" : \\\"respuesta 3\\\"}]\""
+			},
+			"created": 1529339183314,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_df641f32066e4f29b997b111fe6b020a",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529339183314,
+			"method": "POST",
+			"modified": 1529340098854,
+			"name": "Asociar_respuesta_valoracion",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/asociar_respuesta_valoracion",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ab224020f71c4ba3a75aa8b596773f77",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"usuario_id\\\" : 1, \\\"trainer_id\\\" : 1, \\\"tipo_agendamiento_id\\\" : 1, \\\"estado\\\" : \\\"A\\\", \\\"fecha_agendamiento\\\" : \\\"2017-12-15 13:01:23\\\", \\\"nombre\\\" : \\\"Agenda 1 Jimmy\\\" , \\\"descripcion\\\" : \\\"Es una descripcion\\\" , \\\"costo\\\" : \\\"200000\\\"}\""
+			},
+			"created": 1529340426992,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_af67c6182f054cdf986ab1393d34543f",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529340426992,
+			"method": "POST",
+			"modified": 1529348728969,
+			"name": "Agendar",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/agendar",
+			"_type": "request"
+		},
+		{
+			"_id": "req_178d2ffad7d645d99e6c3daa49ed9b81",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"fecha_evento\\\" : \\\"2017-12-15 13:01:23\\\"}\""
+			},
+			"created": 1529348781014,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9479b412e4a948b39efe6324ddd325e7",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529348781014,
+			"method": "POST",
+			"modified": 1529348861418,
+			"name": "Re_agendar",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/re_agendar",
+			"_type": "request"
+		},
+		{
+			"_id": "req_30978516af1648caaaa0d075653185d9",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1}\""
+			},
+			"created": 1529348985116,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_b86b3b060d2749948eaef660d9675c15",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529348985116,
+			"method": "POST",
+			"modified": 1529349014376,
+			"name": "Cancela_agenda",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/cancela_agenda",
+			"_type": "request"
+		},
+		{
+			"_id": "req_8b2b36672bd74f33b270a05dcfb4e67c",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"calificacion\\\" : 4}\""
+			},
+			"created": 1529349118365,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_859f96203aea41e496da605069265913",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349118365,
+			"method": "POST",
+			"modified": 1529349130776,
+			"name": "Califica_agenda_trainer",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/calificar_agenda_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_88f215806c184c8da5e72222c02fcdc5",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"calificacion\\\" : 4}\""
+			},
+			"created": 1529349141019,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_859f96203aea41e496da605069265913",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349051740.5,
+			"method": "POST",
+			"modified": 1529349178008,
+			"name": "Califica_agenda_usuario",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/calificar_agenda_usuario",
+			"_type": "request"
+		},
+		{
+			"_id": "req_3803f4f7cce840eba01048f85df21a4d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"costo\\\" : \\\"20000\\\"}\""
+			},
+			"created": 1529349199139,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_7fe2679425f746608a475bf7db1bf14b",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349199139,
+			"method": "POST",
+			"modified": 1529349214367,
+			"name": "Actualizar_costo",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_costo",
+			"_type": "request"
+		},
+		{
+			"_id": "req_dd12d18623b44a6bb37358f9cbb4cee7",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"trainer_id\\\" : 1, \\\"premio_trainer_id\\\" : 2}\""
+			},
+			"created": 1529349271234,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_a2904d5f3af040fa91d2735f70f65947",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349271234,
+			"method": "POST",
+			"modified": 1529349290169,
+			"name": "Asociar_trainer_premio",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/asociar_trainer_premio",
+			"_type": "request"
+		},
+		{
+			"_id": "req_5f668e45aafe4efea87e9815f0d216a2",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"usuario_id\\\" : 1, \\\"premio_usuario_id\\\" : 2}\""
+			},
+			"created": 1529349336690,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9fc4d6c01ff14b02a0b2480b372bee82",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349336690,
+			"method": "POST",
+			"modified": 1529349359213,
+			"name": "Asociar_usuario_premio",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/asociar_usuario_premio",
+			"_type": "request"
+		},
+		{
+			"_id": "req_57c95b4e2056424399e1679440457a11",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"nombre\\\" : \\\"Examen\\\", \\\"tipo_examen_id\\\" : 2, \\\"trainer_id\\\" : 2}\""
+			},
+			"created": 1529349384054,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_0dc884134a17401b95e31e2bc5721525",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349384054,
+			"method": "POST",
+			"modified": 1529349399146,
+			"name": "Crear_examen",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/crear_examen",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f0a9463d21594e9bb823bb23a2d85f62",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"[{\\\"cualidad_id\\\" : 1, \\\"trainer_id\\\" : 2}, {\\\"cualidad_id\\\" : 2, \\\"trainer_id\\\" : 2}, {\\\"cualidad_id\\\" : 6, \\\"trainer_id\\\" : 2}]\""
+			},
+			"created": 1529349436075,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9d475b8791c0415b8e4f624ebbecb2b2",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349436075,
+			"method": "POST",
+			"modified": 1529349454029,
+			"name": "Cualidad_trainer",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/cualidad_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_65bcbbb06666431ea190bdf2d53cfcff",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"campo\\\" : \\\"FOTO\\\", \\\"foto\\\" : \\\"lafoto.png\\\"}\""
+			},
+			"created": 1529349670625,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_71b1f63a2b214ed29e34c98adca5dcce",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349670625,
+			"method": "POST",
+			"modified": 1529349893525,
+			"name": "Actualizar_trainer_foto",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_c9b3f6e9d2e74f9fa1b99099d72ef0d1",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"campo\\\" : \\\"FACEBOOK\\\", \\\"facebook\\\" : \\\"www.facebbok.com/elface\\\"}\""
+			},
+			"created": 1529350025997,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_71b1f63a2b214ed29e34c98adca5dcce",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349553350,
+			"method": "POST",
+			"modified": 1529350147306,
+			"name": "Actualizar_trainer_facebook",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_d79f96ad572d41bcb558ae47841e298f",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"campo\\\" : \\\"TWITTER\\\", \\\"twitter\\\" : \\\"www.facebbok.com/elface\\\"}\""
+			},
+			"created": 1529350153289,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_71b1f63a2b214ed29e34c98adca5dcce",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349494712.5,
+			"method": "POST",
+			"modified": 1529350178415,
+			"name": "Actualizar_trainer_twitter",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_ae7d22b3f9fe440f8d4aa3fae8c3a5d4",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"campo\\\" : \\\"INSTAGRAM\\\", \\\"instagram\\\" : \\\"www.facebbok.com/elface\\\"}\""
+			},
+			"created": 1529350183453,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_71b1f63a2b214ed29e34c98adca5dcce",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349465393.75,
+			"method": "POST",
+			"modified": 1529350205345,
+			"name": "Actualizar_trainer_instagram",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_0116d9499b93470d8d888e856186ba0d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"id\\\" : 1, \\\"campo\\\" : \\\"EMAIL\\\", \\\"email\\\" : \\\"www.facebbok.com/elface\\\"}\""
+			},
+			"created": 1529350209920,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_71b1f63a2b214ed29e34c98adca5dcce",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349450734.375,
+			"method": "POST",
+			"modified": 1529350228626,
+			"name": "Actualizar_trainer_email",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/actualizar_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_a6bd426fa11b4622ae33ae07880ec56d",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"nombre\\\" : \\\"Mi casita proveedor\\\", \\\"direccion\\\" : \\\"kra falsa #12345\\\"}\""
+			},
+			"created": 1529350255308,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9555c6f8943948f7b086aa7abcbe158b",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529350255308,
+			"method": "POST",
+			"modified": 1529350271146,
+			"name": "Proveedor_usuario",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/proveedor_usuario",
+			"_type": "request"
+		},
+		{
+			"_id": "req_2a2a24111c4a4d0384103d78bc51eb34",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"nombre\\\" : \\\"Mi casita proveedor\\\", \\\"direccion\\\" : \\\"kra falsa #12345\\\"}\""
+			},
+			"created": 1529350281205,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_9555c6f8943948f7b086aa7abcbe158b",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529349962966.5,
+			"method": "POST",
+			"modified": 1529350306557,
+			"name": "Proveedor_trainer",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/proveedor_trainer",
+			"_type": "request"
+		},
+		{
+			"_id": "req_f6d861e8e9d34d4f99fd0eacd97c5fbb",
+			"authentication": {},
+			"body": {
+				"mimeType": "application/json",
+				"text": "\"{\\\"proveedor_usuario_id\\\" : 1, \\\"premio_usuario_id\\\" : 1}\""
+			},
+			"created": 1529350338747,
+			"description": "",
+			"headers": [
+				{
+					"id": "pair_68a622ff84e84e909854b4431c1d4651",
+					"name": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"isPrivate": false,
+			"metaSortKey": -1529350338747,
+			"method": "POST",
+			"modified": 1529350505201,
+			"name": "Asociar_premio_usuario",
+			"parameters": [],
+			"parentId": "fld_01380115841e45a98fb51fbadb27258b",
+			"settingDisableRenderRequestBody": false,
+			"settingEncodeUrl": true,
+			"settingRebuildPath": true,
+			"settingSendCookies": true,
+			"settingStoreCookies": true,
+			"url": "http://127.0.0.1:5000/asociar_premio_usuario",
+			"_type": "request"
+		}
+	]
+}
