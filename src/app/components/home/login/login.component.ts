@@ -4,13 +4,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import {EnrutamientoService}   from '../../../services/enrutamiento.service';
+import {CallserviceService}   from '../../../services/callservice.service';
 
 //Progress bar
 import { NgProgress } from 'ngx-progressbar';
 
 @Component({
   selector: 'app-login',
-  providers: [EnrutamientoService],
+  providers: [EnrutamientoService, CallserviceService],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
@@ -60,7 +61,7 @@ export class LoginComponent implements OnInit
   }//ngOnInit
   
   
-  constructor(private ngProgress: NgProgress, private _enrutamiento: EnrutamientoService)
+  constructor(private ngProgress: NgProgress, private _enrutamiento: EnrutamientoService, private _servicios: CallserviceService)
   {
   }
   
@@ -89,6 +90,36 @@ export class LoginComponent implements OnInit
 	  this._enrutamiento.registrarme();
 	  this.ngProgress.done();	  
   }//registrarme
+  
+  /**
+  *
+  *
+  * Logueo
+  *
+  **/
+  login()
+  {
+	  var body = 
+	  {
+		  email 		: this.correo,
+		  contrasena	: this.contrasena
+	  }
+	  	 	  
+	  this._servicios.login(JSON.stringify(body)).subscribe(function (data) 
+	  {
+		  if(data == 409)
+		  {
+			  //Paila
+			  return;
+		  }
+		  else if(data == 200 || data == 204)
+		  {
+			  //Aqui termino bien
+		  }
+		  
+      });
+	  
+  }//login
   
 
 
